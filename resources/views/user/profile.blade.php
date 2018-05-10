@@ -1,0 +1,304 @@
+@extends('layouts/main')
+
+@section('content')
+
+<section id="main" data-layout="layout-1">
+  @include('layouts/aside')
+     <section id="content">
+         <div class="col-md-12">
+             <div class="tab-content">
+               <div role="tabpanel" class="tab-pane active" id="sidetab1">
+            <div class="row">
+                <div class="min-height">
+                    @if(Session::has('message'))
+                    <div class="container">
+                        <div class="col-md-12 alert alert-success text-center tohide" style="margin-top: 10px;">
+                            {{Session::get('message')}}
+                        </div>
+                    </div>
+                    @endif
+                    <div class="col-md-12 col-xs-12">
+                         <div class="card">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                        <form name="editprofile" id="editprofile" action="{{url('profile/update')}}" method="post"> 
+                            {{csrf_field()}}
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2><span style="color:#009688;">Edit</span>  your Profile </h2>
+                                </div>
+
+                                <div class="card-body card-padding reg-form">
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
+                                                <div class="fg-line">
+                                                    <select class="form-control" name="title">
+                                                        <option <?php if ($member->title == "Mr") { ?> selected=""<?php } ?> value="Mr">Mr.</option>
+                                                        <option <?php if ($member->title == "Ms") { ?> selected=""<?php } ?>  value="Ms">Ms.</option>
+                                                        <option <?php if ($member->title == "Mrs") { ?> selected=""<?php } ?>  value="Mrs">Mrs.</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
+                                                <div class="fg-line">
+                                                    <input class="form-control" name="firstname" placeholder="First Name" type="text" value="{{$member->firstname}}">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
+                                                <div class="fg-line">
+                                                    <input class="form-control" placeholder="Last Name" type="text" name="lastname"  value="{{$member->lastname}}">
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-xs-4">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class=""></i></span>
+                                                <div class="fg-line">
+
+                                                    <select class="form-control" onchange="getStates(this.value)" name="country">
+                                                        @foreach($countries as $country)
+                                                        <option {{ isset($profile) && $profile->country==$country->id ? 'selected' : '' }} value="{{$country->id}}">{{$country->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class=""></i></span>
+                                                <div class="fg-line" id="statehtml">
+                                                    <select class="form-control" id="state" onchange="getcities(this.value)" name="state">
+                                                        <option selected="" value="">Select State</option>
+                                                        @foreach($states as $state)
+                                                        <option <?php if ($state->id == $profile->state) { ?> selected=""<?php } ?>  value="{{$state->id}}">{{$state->name}}</option>
+                                                        @endforeach
+                                                    </select>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="zmdi zmdi-city zmdi-hc-fw"></i></span>
+                                                <div class="fg-line" id="cityhtml">
+                                                    <select class="form-control" id="city" name="city">
+                                                        @foreach($cities as $city)
+                                                        <option <?php if ($city->id == $profile->city) { ?> selected=""<?php } ?> value="{{$city->id}}">{{$city->name}}</option>
+                                                        @endforeach
+                                                    </select>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-6">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="zmdi zmdi- zmdi-hc-fw"></i></span>
+                                                <div class="fg-line">
+                                                    <input class="form-control" placeholder="Zip Code" type="text" name="zip"  value="{{$profile?$profile->zip:''}}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="zmdi zmdi-phone zmdi-hc-fw"></i></span>
+                                                <div class="fg-line">
+                                                    <input class="form-control" placeholder="Contact Number" type="text" name="phone" value="{{$profile?$profile->phone:''}}">
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+
+                                            <div class="text-center col-md-6 col-md-offset-3" style="margin-top:50px;">
+
+
+
+                                                <button class="btn btn-info btn-sm btn-block waves-effect">Submit</button>
+                                                <div class="col-md-12 text-center">
+                                                    <br />
+
+                                                    <p>
+                                                        <!--<span><a href="login.html"> Already have an account ? click here to Login!</a></span>-->
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="pagewidth">
+
+                                        <div class="personatitlesins"><h4>Password</h4></div>
+                                        <div class="passboxmains">
+                                            <div class="emailboxmains">
+                                                <div style="font-size: 14px; color: #000000; padding-top: 20px;">Current Password: *************</div>  
+                                            </div>
+                                            <div class="emailrightinsubbox">
+                                                <button class="btn btn-info btn-sm  waves-effect" type="button"  data-toggle="modal" data-target="#changePassword">Change Password</button>
+                                            </div>
+                                            <div class="clearboth"></div>
+                                        </div>
+                                       
+                                        <div style="height: 25px;"></div>
+                                        <div class="personatitlesins"><h4>Email Address</h4></div>
+                                        <div class="emailsboesins">
+                                            <div class="emailboxmains">
+                                                <div style="font-size: 14px; color: #000000; padding-top: 20px;">Current email address : {{$member->email}}</div>
+                                            </div>
+                                            <div class="emailrightinsubbox">
+                                                <button class="btn btn-info btn-sm  waves-effect" type="button" data-toggle="modal" data-target="#changeemail">Change Email Address</button>
+                                            </div>
+                                            <div class="clearboth"></div>
+                                        </div>
+
+                                    </div>    </div>
+
+                            </div>
+                        </form>
+                        </div>
+                             <div class="clearfix"></div>
+                    </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+            </div>
+
+        </div>
+                 
+                <div role="tabpanel" class="tab-pane" id="profile11">
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="card">
+
+                                                    <div class="card-body card-padding">
+                                                        <p>Morbi mattis ullamcorper velit. Etiam rhoncus. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Cras id dui. Curabitur turpis.
+            Etiam ut purus mattis mauris sodales aliquam. Aenean viverra rhoncus pede. Nulla sit amet est. Donec mi odio, faucibus at, scelerisque quis, convallis in, nisi. Praesent ac sem eget est egestas volutpat.
+            Cras varius. Morbi mollis tellus ac sapien. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. Fusce vel dui.</p>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        
+                                    </div>
+<!--                                    <div role="tabpanel" class="tab-pane" id="messages11">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="card">
+
+                                                    <div class="card-body card-padding">
+                                                        <p>Morbi mattis ullamcorper velit. Etiam rhoncus. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Cras id dui. Curabitur turpis.
+            Etiam ut purus mattis mauris sodales aliquam. Aenean viverra rhoncus pede. Nulla sit amet est. Donec mi odio, faucibus at, scelerisque quis, convallis in, nisi. Praesent ac sem eget est egestas volutpat.
+            Cras varius. Morbi mollis tellus ac sapien. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. Fusce vel dui.</p>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane" id="settings11">
+                                       <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="card">
+
+                                                    <div class="card-body card-padding">
+                                                        <p>Morbi mattis ullamcorper velit. Etiam rhoncus. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Cras id dui. Curabitur turpis.
+            Etiam ut purus mattis mauris sodales aliquam. Aenean viverra rhoncus pede. Nulla sit amet est. Donec mi odio, faucibus at, scelerisque quis, convallis in, nisi. Praesent ac sem eget est egestas volutpat.
+            Cras varius. Morbi mollis tellus ac sapien. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. Fusce vel dui.</p>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>-->
+
+       </div>
+        </div>
+    </section>
+
+</section>
+<div id="changePassword" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Change password</h4>
+                <div id="err_msg"></div>
+                <div id="success_msg"></div>
+            </div>
+            <form name="changepassword" id="changepassword" method="post" action="javascript:void(0);">
+                {{csrf_field()}}
+                <div class="modal-body">
+                    <div class="col-md-12"><label>Current Password</label> <input type="password" placeholder="Current password" name="currentpassword" id="currentpassword" class="changepasswordbtn form-control input-sm" style="width:40%"></p></div>
+                    <div class="col-md-12"><label>New Password</label><input type="password" placeholder="New password" name="newpassword" id="newpassword" class="changepasswordbtn form-control input-sm" style="width:40%"></div>
+                    <div class="col-md-12"><label>Confirm New Password</label><input type="password" placeholder="Confirm new password" name="confirmnewpassword" id="confirmnewpassword" class="changepasswordbtn form-control input-sm" style="width:40%"></div>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-md-12 pull-right">
+                        <button class="btn btn-info btn-sm  waves-effect" type="submit">Change</button> 
+                        <button class="btn btn-default btn-sm  waves-effect" type="button" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+<div id="changeemail" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Change Email</h4>
+                <div id="email_err_msg"></div>
+                <div id="email_success_msg"></div>
+            </div>
+            <form name="updateemail" action="javascript:void(0);" id="updateemail" method="post">
+                {{csrf_field()}}
+                <div class="modal-body">
+                    <p>Enter new email address<input placeholder="Enter new email address" class="form-control input-sm" type="text" name="newemail" id="newemail" style="width:60%"></p>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-md-12 pull-right"><button class="btn btn-info btn-sm  waves-effect" type="submit">Change</button>
+                        <button class="btn btn-default" type="button" data-dismiss="modal">Close</button></div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+@stop
+

@@ -1,0 +1,66 @@
+<?php $__env->startSection('content'); ?>
+<div class="allcontent">
+      <div class="maintitle"><?php if(isset($category)): ?> Update Aws Category <?php else: ?> Add Aws Category <?php endif; ?></div>
+      
+     <div class="maintablewhite">
+	<div class="whiteboxsearch">
+            
+            <?php if(isset($category)): ?>
+            <form name="categoryform" id="categoryform" method="post" action="<?php echo e(adminurl('awscategories/update/'.$category->id)); ?>">
+                
+            <?php else: ?>
+            <form name="categoryform" id="categoryform" method="post" action="<?php echo e(adminurl('awscategories/store')); ?>">
+            <?php endif; ?>
+           <input type='hidden' name='path' value='<?php echo e($prefix); ?>'/>
+                   <?php echo e(csrf_field()); ?>
+
+	<div class="serchlefts">
+            
+<?php if(count($errors) > 0): ?>
+    <div class="alert alert-danger">
+        <ul>
+            <?php foreach($errors->all() as $error): ?>
+                <li><?php echo e($error); ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>
+            <div class="serchmainin">
+            <div class="staus">Path</div>
+	  <div class="stausrightfrom">
+	       <div>
+		  <label>
+		  <?php echo e($prefix); ?>
+
+		
+		  </label>
+	       </div>
+	  </div>
+	    <div class="staus">Name</div>
+	    <div class="stausrightfrom">
+		<input type="text" placeholder="Category Name" value="<?php if(isset($category)): ?><?php echo e($category->category); ?><?php endif; ?>" name="category" class="formbox" id="last_name">
+	    </div>
+	</div>
+	   <div class="serchmainin">
+               
+	  
+          <div style="text-align: right; padding-top: 14px; margin-right: 60px;">
+                    <div class="bluebtn">
+                        <a  href="#" onclick="document.categoryform.submit();"><?php if(isset($category)): ?>Update <?php else: ?> Create <?php endif; ?></a>
+                    </div>
+                    <div class="bluebtn">
+                        <a  href="#" onclick="history.go(-1);">Cancel</a>
+                    </div>
+		</div>
+         
+	</div>
+	
+	</div>
+	 </form>
+     </div>
+	
+     </div>
+   </div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts/admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

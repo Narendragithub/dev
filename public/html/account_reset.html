@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie9"><![endif]-->
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cubedot</title>
+
+    <!-- Vendor CSS -->
+    <link href="vendors/bower_components/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
+    <link href="vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
+    <link href="vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.css" rel="stylesheet">
+    <link href="vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" rel="stylesheet">
+    <link href="vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link href="css/app.min.1.css" rel="stylesheet">
+    <link href="css/app.min.2.css" rel="stylesheet">
+    <link href="css/Style.css" rel="stylesheet" />
+</head>
+
+<body class="toggled sw-toggled">
+    <header id="header" class="clearfix" data-current-skin="teal">
+        <ul class="header-inner">
+            <div class="logo visible-xs" style="text-align:center">
+                <a href="home.html">
+                    <img src="img/play_prism_hlock_2x.png" style="width: 166px;"></a>
+            </div>
+            <li id="menu-trigger" data-trigger="#sidebar">
+                <div class="line-wrap">
+                    <div class="line top"></div>
+                    <div class="line center"></div>
+                    <div class="line bottom"></div>
+                </div>
+            </li>
+
+            <li class="logo hidden-xs">
+                <a href="home.html">
+                    <img src="img/play_prism_hlock_2x.png" style="width: 166px;"></a>
+            </li>
+
+            <li class="pull-right">
+                    <ul class="top-menu">
+                    <li class="dropdown">
+                            <a data-toggle="dropdown" href="#" aria-expanded="false">
+                                <i class="zmdi zmdi-account-circle"></i> Welcome Deepak <i class="zmdi zmdi-caret-down"></i></a>
+                            <ul class="dropdown-menu dm-icon pull-right">
+                                
+                                <li>
+                                    <a href="edit_profile.html"><i class="zmdi zmdi-account"></i>Edit Profile</a>
+                                </li>
+                                <li>
+                                    <a href="account_reset.html"><i class="zmdi zmdi-settings"></i> Account Settings</a>
+                                </li>
+                                <li>
+                                   <a href="my_project.html"><i class="zmdi zmdi-assignment-check"></i> My Projects</a>
+                                </li>
+                                <li class="divider hidden-xs"></li>
+                                <li>
+                                    <a href="#"><i class="zmdi zmdi-power"></i> Logout</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!--<li class="hidden-xs" id="chat-trigger" data-trigger="#chat">
+                            <a href="#"><i class="tm-icon zmdi zmdi-comment-alt-text"></i></a>
+                        </li>-->
+                    </ul>
+                </li>
+        </ul>
+
+        <!-- Top Search Content -->
+        <div id="top-search-wrap">
+            <div class="tsw-inner">
+                <i id="top-search-close" class="zmdi zmdi-arrow-left"></i>
+                <input type="text">
+            </div>
+        </div>
+
+    </header>
+
+    <section id="main" data-layout="layout-1">
+        <aside id="sidebar" class="sidebar c-overflow hidden-md hidden-sm hidden-lg">
+
+            <ul class="main-menu">
+                <li class="active ent">
+                    <a href="index-2.html"><i class="zmdi zmdi-home"></i> Entertainment</a>
+                </li>
+                <li class="">
+
+                    <span class="span1 green_p"> <img src="img/index.png" /></span>
+                    <a href="#"> Apartments</a>
+                </li>
+                <li class="">
+
+                    <span class="span1 red_p"><img src="img/index02.png" /></span>
+                    <a href="#"> Duplex</a>
+                </li>
+               
+            </ul>
+
+            <ul class="bottom-menu main-menu">
+
+                <li> Account</li>
+                <li> Redeem</li>
+                <li> Buy Gift Cart</li>
+                <li> My wishlist</li>
+                <li> My play activity</li>
+                <li> Parent Guide</li>
+
+            </ul>
+
+        </aside>
+
+        <section id="content">
+            <div class="container">
+
+                
+
+                <div class="row">
+                    <div class="">
+
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="card">
+                                <form class="form-horizontal" role="form">
+                                    <div class="card-header text-center">
+                                        <h1><span style="color:#009688;">Change</span> Password </h1>
+                                        <small>In the field below, enter your New Password </small>
+                                    </div>
+
+                                    <div class="card-body card-padding">
+                                        <div class="form-group">
+                                            <label for="inputPassword3" class="col-sm-3 control-label">Current Password</label>
+                                            <div class="col-sm-7">
+
+                                                <div class="fg-line">
+                                                    <input class="form-control input-sm" id="inputPassword3" placeholder="Current Password" type="password">
+                                                </div>
+                                            </div>
+                                        </div>    
+                                        <div class="form-group">
+                                            <label for="inputPassword3" class="col-sm-3 control-label">New Password</label>
+                                            <div class="col-sm-7">
+
+                                                <div class="fg-line">
+                                                    <input class="form-control input-sm" id="inputPassword3" placeholder="Enter new password" type="password">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputPassword3" class="col-sm-3 control-label">Confirm Password</label>
+                                            <div class="col-sm-7">
+
+                                                <div class="fg-line">
+                                                    <input class="form-control input-sm" id="Text1" placeholder="Confirm new password" type="password">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-5 col-sm-10">
+                                                <button type="submit" class="btn btn-primary btn-sm waves-effect">Submit</button>
+                                                <!--  <span><a href="#">Forgot Password Click Here!</a></span>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="card">
+                    
+                </div>
+
+            </div>
+        </section>
+    </section>
+
+    <footer id="footer">
+        Copyright &copy; 2015 Material Admin
+
+        <ul class="f-menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Reports</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </footer>
+
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="preloader pls-blue">
+            <svg class="pl-circular" viewBox="25 25 50 50">
+                <circle class="plc-path" cx="50" cy="50" r="20" />
+            </svg>
+
+            <p>Please wait...</p>
+        </div>
+    </div>
+
+    
+
+    <!-- Javascript Libraries -->
+    <script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="vendors/bower_components/flot/jquery.flot.js"></script>
+    <script src="vendors/bower_components/flot/jquery.flot.resize.js"></script>
+    <script src="vendors/bower_components/flot.curvedlines/curvedLines.js"></script>
+    <script src="vendors/sparklines/jquery.sparkline.min.js"></script>
+    <script src="vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+
+    <script src="vendors/bower_components/moment/min/moment.min.js"></script>
+    <script src="vendors/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+    <script src="vendors/bower_components/simpleWeather/jquery.simpleWeather.min.js"></script>
+    <script src="vendors/bower_components/Waves/dist/waves.min.js"></script>
+    <script src="vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
+    <script src="vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js"></script>
+    <script src="vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <!-- Placeholder for IE9 -->
+    <!--[if IE 9 ]>
+            <script src="vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
+        <![endif]-->
+
+    <script src="js/flot-charts/curved-line-chart.js"></script>
+    <script src="js/flot-charts/line-chart.js"></script>
+    <script src="js/charts.js"></script>
+
+    <script src="js/charts.js"></script>
+    <script src="js/functions.js"></script>
+    <!--<script src="js/demo.js"></script>-->
+
+</body>
+
+</html>

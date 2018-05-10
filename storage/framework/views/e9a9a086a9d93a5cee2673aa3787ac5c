@@ -1,0 +1,319 @@
+<?php $__env->startSection('content'); ?>
+<div class="allcontent">
+    <div class="maintitle">Settings</div>
+    <?php if(Session::has('message')): ?>
+    <div class="container">
+        <div class="col-md-8 col-md-offset-2 alert alert-success text-center">
+            <?php echo e(Session::get('message')); ?>
+
+        </div>
+    </div>
+    <?php endif; ?>
+    <?php if(Session::has('error')): ?>
+    <div class="container">
+        <div class="col-md-8 col-md-offset-2 alert alert-danger text-center">
+            <?php echo e(Session::get('error')); ?>
+
+        </div>
+    </div>
+    <?php endif; ?> 
+    
+    <div class="tabsbg">
+        <div id="tab2">
+            <div role="tabpanel">
+                <ul role="tablist" class="nav nav-tabs" id="settingtabs">
+                    <!--<li role="presentation" <?php if(\Session::has('active_tabid') && \Session::get('active_tabid') !='profile'): ?> <?php else: ?> class='active' <?php endif; ?> >
+                        <a data-toggle="tab" role="tab" aria-controls="profile" href="#profile">
+                            Profile
+                        </a>
+                    </li>
+                   
+                    <li role="presentation"  <?php if(\Session::has('active_tabid') && \Session::get('active_tabid')=='social'): ?> class='active' <?php endif; ?>>
+                        <a data-toggle="tab" role="tab" aria-controls="home" href="#social">
+                            Social Settings
+                        </a>
+                    </li>
+                    <li role="presentation"  <?php if(\Session::has('active_tabid') && \Session::get('active_tabid')=='payment'): ?> class='active' <?php endif; ?>>
+                    <li role="presentation" <?php if(\Session::has('active_tabid')): ?>  <?php else: ?> class='active' <?php endif; ?>>
+                        <a data-toggle="tab" role="tab" aria-controls="payment" href="#payment">
+                            Payment Methods
+                        </a>
+                    </li>-->
+                    <li class="active" role="presentation"  <?php if(\Session::has('active_tabid') && \Session::get('active_tabid')=='adminuser'): ?> class='active' <?php endif; ?>>
+                        <a data-toggle="tab" role="tab" aria-controls="adminuser" href="#adminuser">
+                            Admin Users
+                        </a>
+                    </li>
+                     <li role="presentation" <?php if(\Session::has('active_tabid') && \Session::get('active_tabid')=='email'): ?> class='active' <?php endif; ?>>
+                        <a data-toggle="tab" role="tab" aria-controls="settings" href="#settings">
+                            Settings
+                        </a>
+                    </li>
+                    <!--<li role="presentation" <?php if(\Session::has('active_tabid') && \Session::get('active_tabid')=='testimonials'): ?> class='active' <?php endif; ?>>
+                        <a data-toggle="tab" role="tab" aria-controls="testimonials" href="#testimonials">
+                            Testimonials
+                        </a>
+                    </li>
+                    <li role="presentation" <?php if(\Session::has('active_tabid') && \Session::get('active_tabid')=='templates'): ?> class='active' <?php endif; ?>>
+                        <a data-toggle="tab" role="tab" aria-controls="templates" href="#templates">
+                            Email Templates
+                        </a>
+                    </li>
+                    <li role="presentation" <?php if(\Session::has('active_tabid') && \Session::get('active_tabid')=='logs'): ?> class='active' <?php endif; ?>>
+                        <a data-toggle="tab" role="tab" aria-controls="logs" href="#logs">
+                            Logs
+                        </a>
+                    </li>-->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="tab-content">
+        <!--<div id="profile" class="tab-pane <?php if(\Session::has('active_tabid') && \Session::get('active_tabid') !='profile'): ?> <?php else: ?> active <?php endif; ?>" role="tabpanel">
+            <form name="profile_settings"  id="profile_settings"  method="post" action="<?php echo e(adminurl('settings/updateauth')); ?>" onsubmit="return confirmsettings();return false;">
+                <input type='hidden' id='google2fa_org' value='<?php echo e($admin->google2fa); ?>'/>
+                <input type='hidden' id='emailotp_org' value='<?php echo e($admin->emailotp); ?>'/>
+                <input type='hidden' id='ip_restricted_org' value='<?php echo e($admin->ip_restricted); ?>'/>
+                <input type='hidden' name='active_tabid' value='profile'/>
+                <?php echo e(csrf_field()); ?>
+
+                <div class="acnametext">Profile Settings</div>
+                <div class="prosubrightins">
+                </div>
+                <div class="clearboth"></div>
+                <div class="whiteboxsearch">
+                    <div class="serchlefts">
+                        
+                        <div class="serchmainin">
+                            <div class="staus">Enable Google 2FA : </div>
+                            <div class="stausrightfrom"  style="text-align: left;">
+                                <input type="radio" name="google2fa" value="1" <?php if($admin->google2fa==1): ?> checked <?php endif; ?>/>Yes
+                                <input type="radio" name="google2fa" value="0" <?php if($admin->google2fa==0): ?> checked <?php endif; ?>/>No
+                            </div>
+                        </div>
+                        <div class="serchmainin">
+                            <div class="staus">Enable Email OTP : </div>
+                            <div class="stausrightfrom"  style="text-align: left;">
+                                <input type="radio" name="emailotp" value="1" <?php if($admin->emailotp==1): ?> checked <?php endif; ?>/>Yes
+                                <input type="radio" name="emailotp" value="0" <?php if($admin->emailotp==0): ?> checked <?php endif; ?>/>No
+                            </div>
+                        </div>
+                        <div class="serchmainin">
+                            <div class="staus">Enable IP Restriction :</div>
+                            <div class="stausrightfrom"  style="text-align: left;">
+                                
+                                <input type="radio" name="ip_restricted" value="1" <?php if($admin->ip_restricted==1): ?> checked <?php endif; ?>/>Yes
+                                <input type="radio" name="ip_restricted" value="0" <?php if($admin->ip_restricted==0): ?> checked <?php endif; ?>/>No
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="serchlefts">
+                        
+                    </div>
+                    <div class="serchmainin">
+                        <div style="text-align: right; padding-top: 14px; margin-right: 60px;">
+                            <button class="btn btn-primary" type="submit">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        
+        
+        <div id="social" class="tab-pane <?php if(\Session::has('active_tabid') && \Session::get('active_tabid')=='social'): ?> active <?php endif; ?>" role="tabpanel">
+            <div class="totaltickets">Social Settings</div>
+            <div class="creright"><a href="<?php echo e(adminurl('settings/socialadd')); ?>">[ Add New Provider]</a></div>
+            
+            <div class="clearboth"></div>
+            <div class="tablegrid"  id="socialdata">
+                <div class="tablegridheader">
+                    <div style="text-align: left; padding-left: 8px;">Provider</div>
+                    <div>Client ID</div>
+                    <div>Client Secret</div>
+                    <div>Redirect</div>
+                    <div>Action</div>
+                </div>
+                <?php foreach($social_settings as $setting): ?>
+                <div class="tablegridrow">
+                    <div style="text-align: left; padding-left: 8px;"><?php echo e(ucfirst($setting->provider)); ?></div>
+                    <div><?php echo e($setting->client_id); ?></div>
+                    <div><?php echo e($setting->client_secret); ?></div>
+                    <div><?php echo e($setting->redirect); ?></div>
+                    <div><a class="btn btn-primary" href="<?php echo e(adminurl('settings/socialedit/'.$setting->id)); ?>">Edit</a> <a class="btn btn-danger" onclick="return confirm('Are you sure you want to delete?');" href="<?php echo e(adminurl('settings/socialdelete/'.$setting->id)); ?>">Delete</a></div>
+                </div>
+                <?php endforeach; ?>
+            </div>
+            
+        </div>
+        
+        -->
+        
+        
+        
+        <div id="adminuser" class="active tab-pane <?php if(\Session::has('active_tabid') && \Session::get('active_tabid')=='adminuser'): ?> active <?php endif; ?>" role="tabpanel">
+            <div class="totaltickets">Admin users</div>
+            <div class="creright"><a href="<?php echo e(adminurl('user')); ?>">[ Create New User ]</a></div>
+            <div class="clearboth"></div>
+            <div class="tablegrid">
+                <div class="tablegridrow">
+                    <div style="text-align: left; padding-left: 8px;">Name</div>
+                    <div>Email</div>
+                    <div>Department</div>
+                    <div>Is Verified</div>
+                    <div>Created at</div>
+                    <div>Action</div>
+                </div>
+                <?php foreach($adminusers as $user): ?>
+                <div class="tablegridrow">
+                    <div style="text-align: left; padding-left: 8px;"><?php echo e($user->name); ?></div>
+                    <div><?php echo e($user->email); ?></div>
+                    <div><?php if($user->department): ?> <?php echo e($user->department->department_name); ?> <?php else: ?> &nbsp; <?php endif; ?></div> 
+                    <div><?php if($user->verified==0): ?> No <?php else: ?> Yes <?php endif; ?></div>
+                    <div><?php echo e($user->created_at); ?></div>
+                    <div>
+                        <a class="btn btn-primary" href="<?php echo e(adminurl('edit/'.$user->id)); ?>">Edit</a> 
+                        <?php if($user->id !=\Auth::user('admin')->id): ?><a class="btn btn-danger" onclick="return confirm('Are you sure you want to delete?');" href="<?php echo e(adminurl('deleteuser/'.$user->id)); ?>">Delete</a> <?php endif; ?></div>
+                </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+        <div id="settings" class="tab-pane <?php if(\Session::has('active_tabid') && \Session::get('active_tabid')=='email'): ?> active <?php endif; ?>" role="tabpanel">
+            <form name="email_settings" id="email_settings"  method="post" action="<?php echo e(adminurl('settings/updateemail')); ?>" enctype="multipart/form-data">
+                <input type='hidden' name='active_tabid' value='email'/>
+                <?php echo e(csrf_field()); ?>
+
+                <div class="acnametext">General Settings</div>
+                <div class="prosubrightins">
+                </div>
+                <div class="clearboth"></div>
+                <div class="whiteboxsearch">
+                    <div class="serchlefts">
+                        <div class="serchmainin">
+                            <div class="staus">Website Title :</div>
+                            <div class="stausrightfrom"  style="text-align: left;">
+                                <input id="site_title" class="formbox" type="text" name="site_title" value="<?php echo e($settings->site_title); ?>" placeholder="Site Title"/>
+                            </div>
+                        </div>
+                        <div class="serchmainin">
+                            <div class="staus">Admin Email : </div>
+                            <div class="stausrightfrom">
+                                <input id="admin_email" class="formbox" type="text" name="admin_email" value="<?php echo e($settings->admin_email); ?>" placeholder="Admin Email"/>
+                            </div>
+                        </div>
+                        <div class="serchmainin">
+                            <div class="staus ">Message<br> From Name : </div>
+                            <div class="stausrightfrom">
+                                <input id="from_name" class="formbox" type="text" name="from_name" value="<?php echo e($settings->from_name); ?>" placeholder="Message From Name"/>
+                            </div>
+                        </div>
+                        <div class="serchmainin">
+                            <div class="staus">Message<br> From Email : </div>
+                            <div class="stausrightfrom">
+                                <input id="from_email" class="formbox" type="text" name="from_email" value="<?php echo e($settings->from_email); ?>" placeholder="Message From Email"/>
+                            </div>
+                        </div>
+                        
+                         
+                       <div class="serchmainin">
+                            <div class="staus">Enable Email OTP : </div>
+                            <div class="stausrightfrom"  style="text-align: left;">
+                                <input type="radio" name="emailotp" value="1" <?php if($settings->emailotp==1): ?> checked <?php endif; ?>/>Yes
+                                <input type="radio" name="emailotp" value="0" <?php if($settings->emailotp==0): ?> checked <?php endif; ?>/>No
+                            </div>
+                        </div>
+                      
+                    </div>
+                    <div class="serchlefts">
+                        <div class="serchmainin">
+                            <div class="fileinput fileinput-new">
+                        <div class="fileinput-preview thumbnail">
+                            <img height="200" width="200" src="<?php echo e(url('images/'.$settings->logo)); ?>">
+                        </div>
+                                                                                                                      
+                    </div>
+                            <div class="staus">Site Logo : </div>
+                            <div class="stausrightfrom">
+                                <input id="logo" class="formbox" type="file" name="logo" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="serchmainin">
+                        <div style="text-align: right; padding-top: 14px; margin-right: 60px;">
+                            <button class="btn btn-primary" type="submit">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <!--
+        
+        <div id="templates" class="tab-pane <?php if(\Session::has('active_tabid') && \Session::get('active_tabid')=='templates'): ?> active <?php endif; ?>" role="tabpanel">
+            <div class="totaltickets">Email Templates </div>
+            <div class="creright"><a href="<?php echo e(adminurl('settings/createtemplate')); ?>" class="addnewtemplate">[ Add New Template ]</a></div>
+            <div class="clearboth"></div>
+            <div id="gride-bg">
+                <div class="tablegrid aligncorrect">
+                    <div class="tablegridheader">
+                        <div style='width:50px;' class="text-center">#</div>
+                        <div>Title</div>
+                        <div>Subject</div>
+                        <div>Action</div>
+                    </div>
+                    <?php $cc = 1; ?>
+                    <?php foreach($emailtemplates as $template): ?>
+                    <div class="tablegridrow">
+                        <div style='width:50px;' class="text-center"><?php echo e($cc); ?></div>
+                        <div><?php echo e($template->title); ?></div>
+                        <div><?php echo e($template->subject); ?></div>
+                        <div>
+                            <a class="btn btn-primary" href="<?php echo e(adminurl('settings/edittemplate/'.$template->id)); ?>">Edit</a>
+                        </div>
+                    </div>
+                    <?php $cc++; ?>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+        
+        <div id="logs" class="tab-pane <?php if(\Session::has('active_tabid') && \Session::get('active_tabid')=='logs'): ?> active <?php endif; ?>" role="tabpanel">
+            <div class="totaltickets">Activity Logs</div>
+            <?php if(\Auth::user('admin')->is_main==1): ?>
+            <div class="creright text-danger"><a href="<?php echo e(adminurl('settings/clearlog')); ?>" onclick='return confirm("Are you sure you want to clear all logs");'>[ Clear all logs ]</a></div>
+            <?php endif; ?>
+            <div class="clearboth"></div>
+            <div id="gride-bg">
+                <div class="tablegrid">
+                    <div class="tablegridheader">
+                        <div>Date</div>
+                        <div>Description</div>
+                        <?php if(\Auth::user('admin')->is_main==1): ?>
+                        <div>User</div>
+                        <?php endif; ?>
+                        <div>IP Address</div>
+                    </div>
+                    <?php foreach($activities as $activity): ?>
+                    <?php $user = App\Admin::find($activity->user_id); ?>
+                    <div class="tablegridrow">
+                        <div><?php echo e($activity->created_at); ?></div>
+                        <div><?php echo e($activity->text); ?></div>
+                        
+                        <div><?php if($user): ?><?php echo e($user->name); ?><?php endif; ?></div>
+                        
+                        <div><?php echo e($activity->ip_address); ?></div>
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+            <?php echo $activities->appends(['typ' => 'logs'])->render();; ?>
+
+        </div>-->
+        
+        
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts/admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

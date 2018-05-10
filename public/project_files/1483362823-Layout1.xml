@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Layouts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>Exotica 3BHK</Name>
+  <features>
+    <OrbitCamera>
+      <Orbittouch>
+        <TargetPosition>
+          <TargetPositionX>0</TargetPositionX>
+          <TargetPositionY>0</TargetPositionY>
+          <TargetPositionZ>0</TargetPositionZ>
+        </TargetPosition>
+        <ColliderSize>
+          <ColliderSizeX>0</ColliderSizeX>
+          <ColliderSizeY>0</ColliderSizeY>
+          <ColliderSizeZ>0</ColliderSizeZ>
+        </ColliderSize>
+        <StartValue>15</StartValue>
+        <MaxValue>18</MaxValue>
+        <MinValue>10</MinValue>
+      </Orbittouch>
+      <Orbitvr>
+        <LimitX>8</LimitX>
+        <LimitY>5</LimitY>
+        <LimitZ>10</LimitZ>
+      </Orbitvr>
+    </OrbitCamera>
+    <WalkThrough>
+      <PlayerPosition>
+        <PlayerPositionX>-5.79</PlayerPositionX>
+        <PlayerPositionY>-5.79</PlayerPositionY>
+        <PlayerPositionZ>8.129</PlayerPositionZ>
+      </PlayerPosition>
+      <PlayerRotation>
+        <PlayerRotationX>0</PlayerRotationX>
+        <PlayerRotationY>245</PlayerRotationY>
+        <PlayerRotationZ>0</PlayerRotationZ>
+      </PlayerRotation>
+    </WalkThrough>
+    <VirtualTourCameras>2</VirtualTourCameras>
+    <VirtualTour>
+      <VirtualTouchMode>
+        <Objects>
+          <Room>Living Room</Room>
+          <RoomDimensions>12 x 23</RoomDimensions>
+          <CameraPositionX>1</CameraPositionX>
+          <CameraPositionY>1</CameraPositionY>
+          <CameraPositionZ>1</CameraPositionZ>
+          <CameraRotationX>45</CameraRotationX>
+          <CameraRotationY>-45</CameraRotationY>
+          <CameraRotationZ>90</CameraRotationZ>
+        </Objects>
+        <Objects>
+          <Room>Living Room</Room>
+          <RoomDimensions>12 x 23</RoomDimensions>
+          <CameraPositionX>1</CameraPositionX>
+          <CameraPositionY>1</CameraPositionY>
+          <CameraPositionZ>1</CameraPositionZ>
+          <CameraRotationX>45</CameraRotationX>
+          <CameraRotationY>-45</CameraRotationY>
+          <CameraRotationZ>90</CameraRotationZ>
+        </Objects>
+      </VirtualTouchMode>
+    </VirtualTour>
+  </features>
+  <Catalogue>
+    <NoOfRooms>1</NoOfRooms>
+    <Room>
+      <Rooms>
+        <Name>Master Bedroom</Name>
+        <Theme>TH0</Theme>
+        <NumberOfObjects>1</NumberOfObjects>
+        <DynamicObjects>
+          <DynamicObjectsInfo>
+            <Name>Bed</Name>
+            <positionX>0</positionX>
+            <positionY>3</positionY>
+            <positionZ>0.57</positionZ>
+            <rotationX>0</rotationX>
+            <rotationY>45</rotationY>
+            <rotationZ>0</rotationZ>
+            <DefaultMesh>th00_mb_bd_d_4x6</DefaultMesh>
+            <DefaultMaterialSet>th0_lvr_bed_mking</DefaultMaterialSet>
+          </DynamicObjectsInfo>
+        </DynamicObjects>
+        <NumberOfChangableMaterials>0</NumberOfChangableMaterials>
+        <ChangableMaterials />
+      </Rooms>
+    </Room>
+  </Catalogue>
+</Layouts>

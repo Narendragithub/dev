@@ -1,0 +1,176 @@
+@extends('layouts/main')
+@section('content')
+<section id="main" data-layout="layout-1">
+    @include('layouts/aside')
+	     <section id="content">
+         <div class="col-md-12">
+             <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane active" id="sidetab1">
+            <div class="row">
+                    <div class="">
+
+                        <div class="col-md-12">
+                          <div class="card">
+                        <div class="card-header">
+                            <h2>Support <small>Please Make Sure That You Have Whitelisted The Email Address 'info@admin.com' In Your Email Account So That None Of Our Mails Are Treated As Spams.<br /> Also Check Your Spam Folder And Verify That You Haven't Missed Any Mails From Us. </small></h2>
+                            
+                        </div>
+                        
+                        <div class="card-body">
+                            <div class="row">
+                 <form action="{{url('/addticket')}}" method="post" enctype="multipart/form-data" id="addticket" name="addticket">
+		  {{csrf_field()}}
+		   <div class="col-md-8 col-sm-12 col-xs-12 col-md-offset-2">
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Please Fill Detail Below </h2>
+                                </div>
+                                <div class="card-body card-padding reg-form">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <div class="form-group fg-line">
+                                    <label for="exampleInputEmail1">Select Project</label>
+                                    <select class="form-control" name="project_id">
+				<option value="">Select</option>
+				@foreach($projects as $project)
+                                
+				<option value="{{$project->id}}">{{$project->title}}</option>
+				@endforeach
+			  </select>
+                                </div>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <div class="form-group fg-line">
+                                    <label for="exampleInputEmail1">Select Category</label>
+                                   <select class="form-control"  name="department">
+                              <option value="">Select</option>
+				  @foreach($departments as $department)
+                              <option <?php if(isset($request)){ if($request->department==$department->id){ echo "selected='selected'";} } ?> value="{{$department->id}}">{{$department->ticket_category_name}}</option>
+				@endforeach
+			  </select>
+                                </div>
+                                        </div>
+                                        <div class="col-xs-12">
+                                           <div class="form-group fg-line">
+                                    <label for="exampleInputEmail1">Subject</label>
+                                    <input class="form-control input-sm" id="exampleInputEmail1" placeholder="Enter subject" name="subject" type="text">	
+                                </div>
+                                        </div>
+                                        <div class="col-xs-12">
+                                           <div class="form-group fg-line">
+                                    <label for="exampleInputEmail1">Message</label>
+                                   <textarea class="form-control" rows="5" placeholder="Enter your message...." name="message"></textarea>
+							
+                                </div>
+                                        </div>
+                                        <div class="col-xs-12">
+                                    <label class="f-500 c-black m-b-20">File Upload</label>&nbsp;&nbsp;&nbsp;
+                                    
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <span class="btn btn-primary btn-file m-r-10 waves-effect">
+                                            <span class="fileinput-new">Select file</span>
+                                            <span class="fileinput-exists">Change</span>
+                                           <input type="file" class="" name="image1">
+                                        </span>
+                                        <span class="fileinput-filename"></span>
+                                        <a href="#" class="close fileinput-exists" data-dismiss="fileinput">x</a>
+                                    </div>
+                                            <br /><div class="maxtext"><b>Maximum file size</b> : 2MB.  |  <b>Supported file types </b>:  "jpg",  "jpeg",  "png",  "gif",  "doc",  "xls",  "ppt",  "txt",  "pdf"</div>
+                                          
+                                            <br />
+                                            <div class="checkbox">
+                                    <label>
+                                       <input type="checkbox" name="is_agreed_with_terms" value="1">
+                                        <i class="input-helper"></i>
+                                       I Agree With The <a href="#">Terms And Conditions</a>
+                                    </label>
+                                </div><br />
+                                            <button class="btn btn-info pull-right">Submit</button>
+
+                                </div>
+                                   
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+						</form>
+
+                            </div>
+                          
+                        </div>
+                    </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="card">
+                    
+                </div>
+
+            </div>
+                 
+                <div role="tabpanel" class="tab-pane" id="profile11">
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="card">
+
+                                                    <div class="card-body card-padding">
+                                                        <p>Morbi mattis ullamcorper velit. Etiam rhoncus. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Cras id dui. Curabitur turpis.
+            Etiam ut purus mattis mauris sodales aliquam. Aenean viverra rhoncus pede. Nulla sit amet est. Donec mi odio, faucibus at, scelerisque quis, convallis in, nisi. Praesent ac sem eget est egestas volutpat.
+            Cras varius. Morbi mollis tellus ac sapien. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. Fusce vel dui.</p>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        
+                                    </div>
+<!--                                    <div role="tabpanel" class="tab-pane" id="messages11">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="card">
+
+                                                    <div class="card-body card-padding">
+                                                        <p>Morbi mattis ullamcorper velit. Etiam rhoncus. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Cras id dui. Curabitur turpis.
+            Etiam ut purus mattis mauris sodales aliquam. Aenean viverra rhoncus pede. Nulla sit amet est. Donec mi odio, faucibus at, scelerisque quis, convallis in, nisi. Praesent ac sem eget est egestas volutpat.
+            Cras varius. Morbi mollis tellus ac sapien. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. Fusce vel dui.</p>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane" id="settings11">
+                                       <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="card">
+
+                                                    <div class="card-body card-padding">
+                                                        <p>Morbi mattis ullamcorper velit. Etiam rhoncus. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Cras id dui. Curabitur turpis.
+            Etiam ut purus mattis mauris sodales aliquam. Aenean viverra rhoncus pede. Nulla sit amet est. Donec mi odio, faucibus at, scelerisque quis, convallis in, nisi. Praesent ac sem eget est egestas volutpat.
+            Cras varius. Morbi mollis tellus ac sapien. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. Fusce vel dui.</p>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>-->
+
+       </div>
+        </div>
+        </section>
+		</section>
+@stop

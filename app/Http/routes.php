@@ -1,0 +1,338 @@
+<?php
+
+/*
+  |--------------------------------------------------------------------------
+  | Application Routes
+  |--------------------------------------------------------------------------
+  |
+  | Here is where you can register all of the routes for an application.
+  | It's a breeze. Simply tell Laravel the URIs it should respond to
+  | and give it the controller to call when that URI is requested.
+  |
+ */
+Route::group(['middleware' => 'use.ssl'], function () {
+Route::get('/', 'HomeController@index');
+Route::get('mail', 'HomeController@mail');
+Route::get('user/register','UserController@getRegister');
+Route::get('user/getstates', 'ApiController@getstates');
+Route::get('user/getcities', 'ApiController@getcities');
+Route::get('user/checkemail/{email}','HomeController@checkemail');
+Route::get('/referer', 'HomeController@index');
+Route::post('resend/activation', 'Auth\AuthController@resend');
+Route::get('github', 'Auth\AuthController@github_redirect');
+Route::get('account/github', 'Auth\AuthController@github');
+
+Route::get('google', 'Auth\AuthController@google_redirect');
+Route::get('account/google', 'Auth\AuthController@google');
+
+Route::get('facebook', 'Auth\AuthController@facebook_redirect');
+Route::get('account/facebook', 'Auth\AuthController@facebook');
+// Users route
+Route::post('/customauth/check', 'TwofaController@check');
+Route::get('/customauth', 'TwofaController@index');
+Route::get('/iprestricted', 'TwofaController@iprestricted');
+Route::get('/validate/ipaddress/','TwofaController@verifyip');
+
+Route::controller('/user', 'Auth\AuthController');
+Route::controller('/password', 'Auth\PasswordController');
+//Route::get('member', 'UserController@dashboard');
+Route::post('/changepassword', 'UserController@updatePassword');
+Route::post('/adddomain', 'UserController@adddomain');
+Route::post('/profile/updateauth', 'UserController@updateauth');
+Route::post('/profile', 'UserController@update');
+Route::post('/updateprocessor', 'UserController@updateprocessor');
+Route::post('/updateiprestriction', 'UserController@updateiprestriction');
+
+
+Route::get('/home', ['uses' => 'UserController@getHome']);
+Route::get('/member', ['uses' => 'UserController@getHome']);
+Route::get('/profile', 'UserController@profile');
+Route::post('/profile/update', 'UserController@update');
+Route::get('/invoices', 'UserController@invoices');
+Route::get('/orders', 'UserController@orders');
+Route::get('/downloads', 'UserController@downloads');
+Route::get('/downloads/details/{productid}/{orderid}', 'UserController@details');
+Route::get('/testimonials/add', 'UserController@addtestimonial');
+Route::get('/testimonials', 'UserController@testimonials');
+
+
+// akhil
+Route::post('/newtestimonial', 'UserController@newtestimonial');
+
+// akhil
+Route::get('/affiliates', 'UserController@affiliates');
+Route::get('/support', 'UserController@support');
+Route::get('/support/create', 'UserController@createsupport');
+//Projects
+Route::post("project/create", "ProjectController@quickcreate");
+Route::post("project/savedetails", "ProjectController@savedetails");
+Route::post("project/savelinks", "ProjectController@savelinks");
+Route::post("project/savecontact", "ProjectController@savecontact");
+Route::post("project/transfer_project", "ProjectController@transfer_project");
+Route::post("project/savepublish", "ProjectController@savepublish");
+Route::post('project/upload','ProjectController@upload');
+Route::post('project/upload_xml','ProjectController@upload_xml');
+Route::get("project/gettransferpro/{id}", "ProjectController@gettransferpro");
+Route::get("project/downloadasset/{id}", "ProjectController@downloadasset");
+Route::post("project/gettransferpro/{id}", "ProjectController@gettransferpro");
+Route::post("project/submit_transfer", "ProjectController@submit_transfer");
+Route::get("project/create", "ProjectController@create");
+Route::get("project/delete/{id}", "ProjectController@userdelete");
+Route::get("pid/{id}", "ProjectController@redirectplaystore");
+
+
+Route::post("project/store", "ProjectController@store");
+Route::get("project/edit/{id}", "ProjectController@edit");
+Route::post("project/update", "ProjectController@update");
+Route::get("project/removeimage/{id}", "ProjectController@removeimage");
+Route::get("project/clicklayout/{pid}/{lid}", "ProjectController@clicklayout");
+Route::get("project/getattribute/{id}", "ProjectController@getattribute");
+Route::get("project/getlayoutattribute/{pid}/{lid}/{aid}", "ProjectController@getlayoutattribute");
+Route::post("project/editattribute", "ProjectController@editattribute");
+Route::post("project/swipeimages", "ProjectController@swipeimages");
+Route::post("project/createprojectservices", "ProjectController@createprojectservices");
+Route::post("project/addprojectlayout", "ProjectController@addprojectlayout");
+Route::post("project/addrenderimage", "ProjectController@addrenderimage");
+Route::get("project/download_file/{id}", "ProjectController@zipFileDownload");
+Route::get("project/email_file/{id}", "ProjectController@zipFileEmail");
+Route::get("project/project_publish/{id}/{status}/{agrre}", "ProjectController@project_publish");
+Route::get("pId/{id}", "ApiController@getprojectbasic");
+//akhil
+Route::post('/addticket', 'UserController@addticket');
+Route::post('/ticketresponse', 'UserController@ticketresponse');
+Route::get('/viewticket/{ticketid}', 'UserController@viewticket');
+Route::get('/openticket/{ticketid}', 'UserController@openticket');
+Route::get('/closeticket/{ticketid}', 'UserController@closeticket');
+//akhil
+
+Route::get('/commissions', 'UserController@commissions');
+Route::get('/track-commissions', 'UserController@track');
+Route::get('/promo-tools', 'UserController@promotools');
+Route::get('/withdraw', 'UserController@withdraw');
+// akhil
+
+Route::post('/mycart', 'UserController@mycart');
+Route::get('/mycart', 'UserController@mycart');
+Route::get('/deletemyaccount/{id}', 'UserController@deletemyaccount');
+Route::post('/updatemodule', 'UserController@updatemodule');
+Route::post('/updateservices', 'UserController@updateservices');
+Route::post('/updateemail', 'UserController@updateemail');
+
+Route::post('/removecart', 'UserController@removecart');
+Route::post('/removecartmodule', 'UserController@removecartmodule');
+Route::post('/removecartservice', 'UserController@removecartservice');
+Route::get('/removecart', 'UserController@removecart');
+
+Route::get('account/verification', 'TwofaController@verification');
+Route::get('/register/verify', 'TwofaController@verify');
+Route::get('/resend/activation', 'TwofaController@resend');
+//akhil
+
+Route::post('/addorder', 'UserController@addorder');
+Route::get('/addorder', 'UserController@addorder');
+// akhil
+// webapi
+Route::resource('/webapi/user','ApiController@index');
+Route::post('/webapi/projectlist', 'ApiController@projectlist');
+Route::post('/webapi/projectdetail', 'ApiController@projectdetail');
+Route::post('/webapi/projectbasic', 'ApiController@projectbasic');
+Route::post('/webapi/projectdescription', 'ApiController@projectdescription');
+Route::post('/webapi/projectassets', 'ApiController@projectassets');
+Route::post('/webapi/project_search', 'ApiController@project_search');
+Route::post('/webapi/addrating', 'ApiController@addrating');
+Route::post('/webapi/checkemail','ApiController@checkemail');
+Route::post('/webapi/user/login','ApiController@login');
+
+Route::post('/webapi/user/register','ApiController@register');
+Route::post('/webapi/user/change_password','ApiController@change_password');
+Route::post('/webapi/user/forgot_password','ApiController@forgot_password');
+Route::post('/webapi/favourite','ApiController@favourite');
+Route::post('/webapi/favouritebyuser','ApiController@favouritebyuser');
+Route::post('/webapi/checkfavourite','ApiController@checkfavourite');
+Route::post('/webapi/social_sign_up','ApiController@social_sign_up');
+Route::post('/webapi/adverts','ApiController@adverts');
+Route::post('/webapi/projectshortdetail', 'ApiController@projectshortdetail');
+//Route::post('/webapi/user/loginUser','ApiController@loginUser'); //Api for Cuebxpress
+Route::post('/webapi/user/loginUser', ['uses' => 'ApiController@loginUser','middleware'=>'cors']);
+Route::post('/webapi/user/loginToAutoCat', ['uses' => 'ApiController@loginToAutoCat','middleware'=>'cors']);
+Route::get('autologin/{token}', ['as' => 'autologin', 'uses' => '\Watson\Autologin\AutologinController@autologin']);
+Route::post('/webapi/user/projectcreate','ApiController@projectcreate'); 
+Route::post('/webapi/user/userprojects','ApiController@userprojects'); 
+Route::post('/webapi/user/getuserjson','ApiController@getuserjson');
+Route::post('/webapi/user/getLayouts','ApiController@getLayouts');
+Route::post('/webapi/user/addprojectlayout','ApiController@addprojectlayout');
+
+//Route::resource('/register/verify', 'ApiController@verify');
+// webapi
+Route::post('payment', array(
+    'as' => 'payment',
+    'uses' => 'PaypalController@postPayment',
+));
+
+Route::get('payment', array(
+    'as' => 'payment',
+    'uses' => 'PaypalController@postPayment',
+));
+
+Route::get('payment/status', array(
+    'as' => 'payment.status',
+    'uses' => 'PaypalController@getPaymentStatus',
+));
+
+Route::get('/webgl', function() {
+    
+  return File::get(public_path() . '/webgl/index.html');
+});
+
+Route::group(array('prefix' => 'admin'), function() {
+
+        Route::post("project/addrenderimage", "ProjectController@addrenderimage");
+        Route::get('/', 'AdminController@getHome');
+        Route::get('home', 'AdminController@getHome');
+        Route::get("attributes", "AttributeController@index");
+        Route::get("attributes/create", "AttributeController@create");
+        Route::post("attributes/store", "AttributeController@store");
+        Route::get("attributes/edit/{id}", "AttributeController@edit");
+        Route::post("attributes/update/{id}", "AttributeController@update");
+        Route::get("attributes/delete/{id}", "AttributeController@delete");
+        Route::get("departments", "DepartmentController@index");
+        Route::get("departments/create", "DepartmentController@create");
+        Route::post("departments/store", "DepartmentController@store");
+        Route::get("departments/edit/{id}", "DepartmentController@edit");
+        Route::post("departments/update/{id}", "DepartmentController@update");
+        Route::get("departments/delete/{id}", "DepartmentController@delete");
+        Route::get("ticket_category", "TicketCategoryController@index");
+        Route::get("ticket_category/create", "TicketCategoryController@create");
+        Route::post("ticket_category/store", "TicketCategoryController@store");
+        Route::get("ticket_category/edit/{id}", "TicketCategoryController@edit");
+        Route::post("ticket_category/update/{id}", "TicketCategoryController@update");
+        Route::get("ticket_category/delete/{id}", "TicketCategoryController@delete");
+        Route::get("project/assets_delete/{id}/{pid}", "ProjectController@assets_delete");
+        Route::get("layouts", "LayoutController@index");
+        Route::get("layouts/create", "LayoutController@create");
+        Route::post("layouts/store", "LayoutController@store");
+        Route::get("layouts/edit/{id}", "LayoutController@edit");
+        Route::get("layouts/delete/{id}", "LayoutController@delete");
+        Route::post("layouts/update/{id}", "LayoutController@update");
+        Route::post("project/addprojectxmldetail", "ProjectController@addprojectxmldetail");
+        Route::post("project/projectstatusupdate", "ProjectController@projectstatusupdate");
+        Route::post("project/addassetbundle", "ProjectController@addassetbundle");
+        Route::get("themes", "ThemeController@index");
+        Route::get("themes/create", "ThemeController@create");
+        Route::post("themes/store", "ThemeController@store");
+        Route::get("themes/edit/{id}", "ThemeController@edit");
+        Route::post("themes/update/{id}", "ThemeController@update");
+        Route::get("themes/delete/{id}", "ThemeController@delete");
+        Route::get("projects", "ProjectController@index");
+        Route::post("projects/store", "ProjectController@store");
+        Route::get("projects/edit/{id}", "ProjectController@edit");
+        Route::post("projets/update/{id}", "ProjectController@update");
+        Route::get("projects/delete/{id}", "ProjectController@delete");
+        Route::get("project/view/{id}", "ProjectController@view");
+        Route::get("project/projectfile_delete/{id}/{pid}", "ProjectController@projectfile_delete");
+        Route::get("project/complete_task/{id}", "ProjectController@complete_task");
+        Route::get("project/approve_task/{id}", "ProjectController@approve_task");
+        Route::post("project/addfile", "ProjectController@addfile");
+
+        //Admin route
+        Route::resource("categories", "CategoryController");
+        Route::post("categories/store", "CategoryController@store");
+        Route::get("categories/edit/{id}", "CategoryController@edit");
+        Route::post("categories/update/{id}", "CategoryController@update");
+        Route::get("categories/delete/{id}", "CategoryController@delete");
+        Route::resource("awscategories", "AwsCategoryController");
+        Route::post("awscategories/store", "AwsCategoryController@store");
+        Route::get("awscategories/edit/{id}", "AwsCategoryController@edit");
+        Route::post("awscategories/update/{id}", "AwsCategoryController@update");
+        Route::get("awscategories/delete/{id}", "AwsCategoryController@delete");
+        Route::get("awscategories/view_file/{id}", "AwsCategoryController@view_file");
+        Route::post("settings/addtemplate", "SettingsController@addtemplate");
+        Route::post("settings/updatetemplate", "SettingsController@updatetemplate");
+        Route::get("settings/createtemplate", "SettingsController@createtemplate");
+        Route::get("settings/edittemplate/{id}", "SettingsController@createtemplate");
+        Route::post("settings/updateauth", "SettingsController@updateauth");
+        Route::resource("products", "ProductController");
+        Route::post("products/store", "ProductController@store");
+         Route::get("awscategories/uploadefolder/{parent}", "AwsCategoryController@uploadefolder");
+         Route::post("awscategories/uploadestore", "AwsCategoryController@uploadestore");
+
+        //for edit (Akhil)
+        Route::post("products/update/{id}", "ProductController@update");
+        Route::post("products/addversion", "ProductController@addversion");
+        Route::post("products/addmoduleversion", "ProductController@addmoduleversion");
+        Route::post("products/updateversion/{id}", "ProductController@updateversion");
+        Route::post("products/updatemoduleversion/{id}", "ProductController@updatemoduleversion");
+        Route::post("products/updatemodule/{id}", "ProductController@updatemodule");
+        Route::get("products/edit/{id}", "ProductController@edit");
+        Route::get("products/delete/{id}", "ProductController@delete");
+        Route::get("products/deleteversion/{id}", "ProductController@deleteversion");
+        Route::get("products/addmodule/{id}", "ProductController@addmodule");
+        Route::get("products/addservices/{id}", "ProductController@addservices");
+        Route::post("products/newmodule", "ProductController@newmodule");
+        Route::post("products/newservices", "ProductController@newservices");
+        Route::post("awscategories/addfile_sub", "AwsCategoryController@addfile_sub");
+
+        //akhil
+        Route::get("settings/paymentadd", "SettingsController@paymentadd");
+        Route::get("settings/socialadd", "SettingsController@socialadd");
+        Route::get("support", "SupportController@index");
+        Route::get("support/view/{id}", "SupportController@view");
+        Route::post("support/ticketresponse", 'SupportController@ticketresponse');
+        Route::post("support/search", 'SupportController@search');
+        //Route::resource("settings", "SettingsController");
+        Route::post("settings/update", "SettingsController@update");
+        Route::get("settings", "SettingsController@index");
+        Route::post("settings/addsocial", "SettingsController@addsocial");
+        Route::post("settings/addpayment", "SettingsController@addpayment");
+        Route::post("settings/updatepayment", "SettingsController@updatepayment");
+        Route::get("settings/payedit/{id}", "SettingsController@payedit");
+        Route::get("settings/clearlog", "SettingsController@clearlog");
+        Route::get("settings/paydelete/{id}", "SettingsController@paydelete");
+        Route::get("settings/socialdelete/{id}", "SettingsController@socialdelete");
+        Route::post("settings/updatesocial", "SettingsController@updatesocial");
+        Route::get("settings/socialedit/{id}", "SettingsController@socialedit");
+        Route::post("settings/updateemail", "SettingsController@updateemail");
+        Route::get("advert", "AdvertController@index");
+        Route::post("advert/upload", "AdvertController@upload");
+        Route::get("advert/removeimage/{id}", "AdvertController@removeimage");
+        Route::post("advert/swipeimages", "AdvertController@swipeimages");
+
+        //Admin Orders
+        Route::post('member/editresponse', 'MemberController@editresponse');
+        Route::get('member/deleteresponse/{id}/{responseid}', 'MemberController@deleteresponse');
+        Route::get('testimonials', 'MemberController@testimonials');
+        Route::get('approvetestimonial/{id}', 'MemberController@approvetestimonial');
+        Route::get('disapprovetestimonial/{id}', 'MemberController@disapprovetestimonial');
+        Route::get('deletetestimonial/{id}', 'MemberController@deletetestimonial');
+        Route::post("approve","OrderController@approve");
+        Route::post("approvemodule","OrderController@approvemodule");
+        Route::get("orders/edit/{id}","OrderController@edit");
+        Route::get("disapprove/{id}","OrderController@disapprove");
+        Route::get("orders", "OrderController@index");
+        Route::get("invoices", "InvoiceController@index");
+        Route::get("members", "MemberController@index");
+        Route::get("members/delete/{id}", "MemberController@delete");
+        Route::get("members/overview/{id}", "MemberController@overview");
+        Route::post("adduser", "AdminController@adduser");
+        Route::post("changeadminpassword", "AdminController@changeadminpassword");
+        Route::post("edituser", "AdminController@edituser");
+        Route::get("edit/{id}", "AdminController@edit");
+        Route::get("deleteuser/{id}", "AdminController@deleteuser");
+        Route::get("user", "AdminController@user");
+        Route::get("unauthorized", "AdminController@unauthorized");
+        //Route::get('home', ['uses' => 'AdminController@getHome']);
+        Route::post('twofa/check', 'AdmintwofaController@check');
+        Route::get('twofa', 'AdmintwofaController@index');
+        Route::get('iprestricted', 'AdmintwofaController@iprestricted');
+        Route::get('validate/ipaddress/','AdmintwofaController@verifyip');
+        Route::post('updateiprestriction', 'AdminController@updateiprestriction');
+        Route::controller('password', 'Auth\AdminPasswordController');
+        Route::controller('', 'Auth\AdminController'); 
+   });
+
+});
+
+Route::get('breweries', ['middleware' => 'cors', function()
+{
+    return \Response::json(\App\Brewery::with('beers', 'geocode')->paginate(10), 200);
+}]);

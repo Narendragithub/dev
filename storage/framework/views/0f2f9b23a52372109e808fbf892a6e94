@@ -1,0 +1,110 @@
+<?php $__env->startSection('content'); ?>
+<div class="allcontent">
+    <div class="maintitle"><?php if($user): ?> Edit User <?php else: ?> Add New User <?php endif; ?></div>
+
+    <div class="maintablewhite">
+        <div class="whiteboxsearch">
+            <?php if(Session::has('error')): ?>
+    <div class="container">
+        <div class="col-md-8 col-md-offset-2 alert alert-danger text-center">
+            <?php echo e(Session::get('error')); ?>
+
+        </div>
+    </div>
+    <?php endif; ?> 
+             <?php if($user): ?>
+             <form action="<?php echo e(adminurl('edituser')); ?>" method="post" name="edituserform" id="edituserform">
+                  <input type='hidden' name='userid' value='<?php echo e($user->id); ?>'/>
+             <?php else: ?>
+             <form action="<?php echo e(adminurl('adduser')); ?>" method="post" name="addadminuser" id="addadminuser">
+             <?php endif; ?>
+            
+                
+                <?php echo e(csrf_field()); ?>
+
+                <div class="serchlefts">
+                    <div class="serchmainin">
+                        <div class="staus">Name</div>
+                        <div class="stausrightfrom">
+                            <input type="text" placeholder="Name" value="<?php if($user): ?><?php echo e($user->name); ?><?php endif; ?>" name="name" class="formbox">
+                        </div>
+                    </div>
+                    <div class="serchmainin">
+                        <div class="staus">Email</div>
+                        <div class="stausrightfrom">
+                            <input type="text" placeholder="Email" value="<?php if($user): ?><?php echo e($user->email); ?><?php endif; ?>" name="email" class="formbox">
+                        </div>
+                    </div>
+                    <?php if(!$user): ?>
+                    <div class="serchmainin">
+                        <div class="staus">Password</div>
+                        <div class="stausrightfrom">
+                            <input type="password" placeholder="Password" value="" name="password" id="password" class="formbox">
+                        </div>
+                    </div>
+                    <div class="serchmainin">
+                        <div class="staus">Confirm Password</div>
+                        <div class="stausrightfrom">
+                            <input type="password" placeholder="Confirm Password" value="" id="confirm_password" name="confirm_password" class="formbox">
+                        </div>
+                    </div>
+                    <?php endif; ?>
+                    <div class="serchmainin">
+                            <div class="staus">Department</div>
+                            <div class="stausrightfrom">
+                                <div class="select-main">
+                                    <label>
+                                        <select name="department_id">
+                                            <option value="">Select Department</option>
+                                            <?php foreach($departments as $department): ?>
+                                            <option <?php
+                                            if (isset($user)) {
+                                                if ($user->department_id == $department->id) {
+                                                    echo 'selected="selected"';
+                                                }
+                                            }
+                                            ?> value="<?php echo e($department->id); ?>"><?php echo e($department->department_name); ?></option>
+
+                                            <?php endforeach; ?>   
+                                        </select>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="serchmainin" style="display: none;">
+                        <div class="staus" style="vertical-align: middle">Select Modules</div>
+                        <div class="stausrightfrom">
+                           <?php foreach($modules as $module): ?>
+                            <div class="col-md-6 checkbox">
+                                <input type="checkbox" checked <?php if($user && $usermodules && in_array($module->id,$usermodules)): ?> checked <?php endif; ?> value="<?php echo e($module->id); ?>" name="modules[]" class="" style="display:block"><?php echo e($module->name); ?>
+
+                            </div>
+                            <?php endforeach; ?>
+                            
+                        </div>
+                    </div>
+                    <div class="serchmainin">
+
+
+                        <div style="text-align: right; padding-top: 14px; margin-right: 60px;">
+                            <?php if($user): ?>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                            
+                            <?php else: ?>
+                            <button type="submit" class="btn btn-primary">Add</button>
+                           
+                            <?php endif; ?>
+                            <a type="button" href="<?php echo e(adminurl('settings#adminuser')); ?>" class="btn btn-default">Cancel</a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts/admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

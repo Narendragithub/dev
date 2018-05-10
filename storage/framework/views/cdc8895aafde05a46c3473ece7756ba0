@@ -1,0 +1,97 @@
+<?php $__env->startSection('content'); ?>
+<div class="allcontent">
+    
+    <div class="maintitle">Aws Categories</div>
+    <?php if(Session::has('message')): ?>
+    <div class="container">
+            <div class="col-md-8 col-md-offset-2 alert alert-success text-center">
+                <?php echo e(Session::get('message')); ?>
+
+            </div>
+    </div>
+    <?php endif; ?>
+    <?php if(Session::has('error')): ?>
+    <div class="container">
+            <div class="col-md-8 col-md-offset-2 alert alert-danger text-center">
+                <?php echo e(Session::get('error')); ?>
+
+            </div>
+    </div>
+    <?php endif; ?> 
+    
+    <div class="maintablewhite">
+        
+        <div class="tebaltop">
+
+            <div style="float:left">
+Path : <a href='<?php echo e(adminurl('awscategories')); ?>'>Root</a> 
+            <?php foreach($breadcrumb as $key=>$value): ?>
+               >> <a href='<?php echo e(adminurl('awscategories')); ?>?dir=<?php echo e($value["href"]); ?>'><?php echo e($value["text"]); ?></a> 
+            <?php endforeach; ?>
+<br/>
+            <form id="aws" name="aws" action="<?php echo e(adminurl('awscategories')); ?>">
+            <select name="dir"  onchange="this.form.submit()">
+            <option value=''>Select</option>
+           
+            <?php foreach($awsfiles as $key1=>$value1): ?>
+            	<?php if(is_array($value1)): ?>
+            		
+            	<option value=<?php if($prefix!=''): ?><?php echo e($prefix); ?>/<?php endif; ?><?php echo e($key1); ?>><?php echo e($key1); ?></option>
+            		
+             	<?php endif; ?>
+            <?php endforeach; ?>
+            </select>
+            </form>
+            </div>
+            </span>
+            <div class="bluebtn"><a href="<?php echo e(adminurl('awscategories/create')); ?><?php if($prefix!=''): ?>?dir=<?php echo e($prefix); ?><?php endif; ?>">+Add New Aws Category</a></div>
+          
+        </div>
+
+        <div id="gride-bg">
+            <div class="tablegrid">
+                <div class="tablegridheader">
+                    <!--<div><input type="checkbox" id="checkbox" name="checkbox"><label for="checkbox"></label></div>-->
+                    <div>Name</div>
+                    <div>Parent</div>
+                    
+                    <div>Action</div>
+
+
+                </div>
+                <?php foreach($awsfiles as $key1=>$value1): ?>
+            	<?php if(!is_array($value1)): ?>
+
+                <div class="tablegridrow">
+                    <!--<div><input type="checkbox" id="2" name="checkbox"> <label for="2"></label></div>-->
+                    <div><?php echo e($value1); ?> </div>
+                    
+                    <div><?php echo e($prefix); ?></div>   
+                    
+                    <div>
+                        
+                      <a class="delete"  prop="category"  href="#">Delete</a>  
+</div>
+                </div>
+                <?php endif; ?>
+                <?php endforeach; ?>   
+               
+
+            </div>
+            <?php echo $categories->render(); ?>
+            <!--<ul class="nice_paging">
+                               <li><a href="#">< Previous</a></li>
+                               <li><a href="#">1</a></li>
+                               <li class="current">2</li>
+                               <li><a href="#">3</a></li>
+                               <li><a href="#">4</a></li>
+                               <li><a href="#">5</a></li>
+                               <li><a href="#">Next ></a></li>
+             </ul>-->
+            <div class="clearboth"></div>
+        </div>
+
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts/admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

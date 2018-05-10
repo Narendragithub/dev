@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Layouts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>DummyLayout</Name>
+  <features>
+    <OrbitCamera>
+      <Orbittouch>
+        <TargetPosition>
+          <TargetPositionX>0</TargetPositionX>
+          <TargetPositionY>0</TargetPositionY>
+          <TargetPositionZ>0</TargetPositionZ>
+        </TargetPosition>
+        <ColliderSize>
+          <ColliderSizeX>0</ColliderSizeX>
+          <ColliderSizeY>0</ColliderSizeY>
+          <ColliderSizeZ>0</ColliderSizeZ>
+        </ColliderSize>
+        <StartValue>0</StartValue>
+        <MaxValue>0</MaxValue>
+        <MinValue>0</MinValue>
+      </Orbittouch>
+      <Orbitvr>
+        <LimitX>0</LimitX>
+        <LimitY>0</LimitY>
+        <LimitZ>0</LimitZ>
+      </Orbitvr>
+    </OrbitCamera>
+    <WalkThrough>
+      <PlayerPosition>
+        <PlayerPositionX>0</PlayerPositionX>
+        <PlayerPositionY>0</PlayerPositionY>
+        <PlayerPositionZ>0</PlayerPositionZ>
+      </PlayerPosition>
+      <PlayerRotation>
+        <PlayerRotationX>0</PlayerRotationX>
+        <PlayerRotationY>0</PlayerRotationY>
+        <PlayerRotationZ>0</PlayerRotationZ>
+      </PlayerRotation>
+    </WalkThrough>
+    <VirtualTourCameras>0</VirtualTourCameras>
+    <VirtualTour>
+      <VirtualTouchMode />
+    </VirtualTour>
+  </features>
+  <Catalogue>
+    <NoOfRooms>5</NoOfRooms>
+    <Room>
+      <Rooms>
+        <Name>Living Room</Name>
+        <Theme>01</Theme>
+        <NumberOfObjects>2</NumberOfObjects>
+        <DynamicObjects>
+          <DynamicObjectsInfo>
+            <Name>Sofa</Name>
+            <positionX>-0.54</positionX>
+            <positionY>0.553</positionY>
+            <positionZ>-3.48</positionZ>
+            <rotationX>0</rotationX>
+            <rotationY>45</rotationY>
+            <rotationZ>0</rotationZ>
+            <DefaultMesh>th01_lr_sf_l1_s4</DefaultMesh>
+            <DefaultMaterialSet />
+          </DynamicObjectsInfo>
+          <DynamicObjectsInfo>
+            <Name>Dining Table</Name>
+            <positionX>-0.54</positionX>
+            <positionY>0.553</positionY>
+            <positionZ>2.23</positionZ>
+            <rotationX>0</rotationX>
+            <rotationY>30</rotationY>
+            <rotationZ>0</rotationZ>
+            <DefaultMesh>th01_lr_dn_s4</DefaultMesh>
+            <DefaultMaterialSet />
+          </DynamicObjectsInfo>
+        </DynamicObjects>
+        <NumberOfChangableMaterials>3</NumberOfChangableMaterials>
+        <ChangableMaterials>
+          <ChangeableMaterialObjects>
+            <AssetName>NWall</AssetName>
+            <positionX>0</positionX>
+            <positionY>0</positionY>
+            <positionZ>0</positionZ>
+            <rotationX>0</rotationX>
+            <rotationY>0</rotationY>
+            <rotationZ>0</rotationZ>
+            <DefaultMaterialSet />
+          </ChangeableMaterialObjects>
+          <ChangeableMaterialObjects>
+            <AssetName>SWall</AssetName>
+            <positionX>0</positionX>
+            <positionY>0</positionY>
+            <positionZ>0</positionZ>
+            <rotationX>0</rotationX>
+            <rotationY>0</rotationY>
+            <rotationZ>0</rotationZ>
+            <DefaultMaterialSet />
+          </ChangeableMaterialObjects>
+          <ChangeableMaterialObjects>
+            <AssetName>Floor</AssetName>
+            <positionX>0</positionX>
+            <positionY>0</positionY>
+            <positionZ>0</positionZ>
+            <rotationX>0</rotationX>
+            <rotationY>0</rotationY>
+            <rotationZ>0</rotationZ>
+            <DefaultMaterialSet />
+          </ChangeableMaterialObjects>
+        </ChangableMaterials>
+      </Rooms>
+      <Rooms>
+        <Name>Master Bedroom</Name>
+        <Theme>02</Theme>
+        <NumberOfObjects>1</NumberOfObjects>
+        <DynamicObjects>
+          <DynamicObjectsInfo>
+            <Name>Bed</Name>
+            <positionX>7.89</positionX>
+            <positionY>0.553</positionY>
+            <positionZ>-0.38</positionZ>
+            <rotationX>0</rotationX>
+            <rotationY>180</rotationY>
+            <rotationZ>0</rotationZ>
+            <DefaultMesh>th02_mb_bd_d_5x6</DefaultMesh>
+            <DefaultMaterialSet />
+          </DynamicObjectsInfo>
+        </DynamicObjects>
+        <NumberOfChangableMaterials>3</NumberOfChangableMaterials>
+        <ChangableMaterials>
+          <ChangeableMaterialObjects>
+            <AssetName>NWall</AssetName>
+            <positionX>0</positionX>
+            <positionY>0</positionY>
+            <positionZ>0</positionZ>
+            <rotationX>0</rotationX>
+            <rotationY>0</rotationY>
+            <rotationZ>0</rotationZ>
+            <DefaultMaterialSet />
+          </ChangeableMaterialObjects>
+          <ChangeableMaterialObjects>
+            <AssetName>SWall</AssetName>
+            <positionX>0</positionX>
+            <positionY>0</positionY>
+            <positionZ>0</positionZ>
+            <rotationX>0</rotationX>
+            <rotationY>0</rotationY>
+            <rotationZ>0</rotationZ>
+            <DefaultMaterialSet />
+          </ChangeableMaterialObjects>
+          <ChangeableMaterialObjects>
+            <AssetName>Floor</AssetName>
+            <positionX>0</positionX>
+            <positionY>0</positionY>
+            <positionZ>0</positionZ>
+            <rotationX>0</rotationX>
+            <rotationY>0</rotationY>
+            <rotationZ>0</rotationZ>
+            <DefaultMaterialSet />
+          </ChangeableMaterialObjects>
+        </ChangableMaterials>
+      </Rooms>
+      <Rooms>
+        <Name>Normal Bedroom</Name>
+        <Theme>03</Theme>
+        <NumberOfObjects>1</NumberOfObjects>
+        <DynamicObjects>
+          <DynamicObjectsInfo>
+            <Name>Bed</Name>
+            <positionX>3.87</positionX>
+            <positionY>0.553</positionY>
+            <positionZ>-2.91</positionZ>
+            <rotationX>0</rotationX>
+            <rotationY>0</rotationY>
+            <rotationZ>0</rotationZ>
+            <DefaultMesh>th03_nb_bd_d_6x6</DefaultMesh>
+            <DefaultMaterialSet />
+          </DynamicObjectsInfo>
+        </DynamicObjects>
+        <NumberOfChangableMaterials>3</NumberOfChangableMaterials>
+        <ChangableMaterials>
+          <ChangeableMaterialObjects>
+            <AssetName>Wall</AssetName>
+            <positionX>0</positionX>
+            <positionY>0</positionY>
+            <positionZ>0</positionZ>
+            <rotationX>0</rotationX>
+            <rotationY>0</rotationY>
+            <rotationZ>0</rotationZ>
+            <DefaultMaterialSet />
+          </ChangeableMaterialObjects>
+          <ChangeableMaterialObjects>
+            <AssetName>SWall</AssetName>
+            <positionX>0</positionX>
+            <positionY>0</positionY>
+            <positionZ>0</positionZ>
+            <rotationX>0</rotationX>
+            <rotationY>0</rotationY>
+            <rotationZ>0</rotationZ>
+            <DefaultMaterialSet />
+          </ChangeableMaterialObjects>
+          <ChangeableMaterialObjects>
+            <AssetName>Floor</AssetName>
+            <positionX>0</positionX>
+            <positionY>0</positionY>
+            <positionZ>0</positionZ>
+            <rotationX>0</rotationX>
+            <rotationY>0</rotationY>
+            <rotationZ>0</rotationZ>
+            <DefaultMaterialSet />
+          </ChangeableMaterialObjects>
+        </ChangableMaterials>
+      </Rooms>
+      <Rooms>
+        <Name>Normal Bedroom</Name>
+        <Theme>02</Theme>
+        <NumberOfObjects>1</NumberOfObjects>
+        <DynamicObjects>
+          <DynamicObjectsInfo>
+            <Name>Bed</Name>
+            <positionX>-3.3</positionX>
+            <positionY>0.553</positionY>
+            <positionZ>-3.45</positionZ>
+            <rotationX>0</rotationX>
+            <rotationY>270</rotationY>
+            <rotationZ>0</rotationZ>
+            <DefaultMesh>th02_nb_bd_d_5x6</DefaultMesh>
+            <DefaultMaterialSet />
+          </DynamicObjectsInfo>
+        </DynamicObjects>
+        <NumberOfChangableMaterials>0</NumberOfChangableMaterials>
+        <ChangableMaterials />
+      </Rooms>
+      <Rooms>
+        <Name>Normal Bedroom</Name>
+        <Theme>01</Theme>
+        <NumberOfObjects>1</NumberOfObjects>
+        <DynamicObjects>
+          <DynamicObjectsInfo>
+            <Name>Bed</Name>
+            <positionX>-3.3</positionX>
+            <positionY>0.553</positionY>
+            <positionZ>-3.45</positionZ>
+            <rotationX>0</rotationX>
+            <rotationY>270</rotationY>
+            <rotationZ>0</rotationZ>
+            <DefaultMesh>th01_nb_bd_d_5x6</DefaultMesh>
+            <DefaultMaterialSet />
+          </DynamicObjectsInfo>
+        </DynamicObjects>
+        <NumberOfChangableMaterials>0</NumberOfChangableMaterials>
+        <ChangableMaterials />
+      </Rooms>
+    </Room>
+  </Catalogue>
+</Layouts>

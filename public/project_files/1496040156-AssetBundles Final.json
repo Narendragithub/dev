@@ -1,0 +1,169 @@
+{
+    //List of Asset bundles
+    "Bundles":{
+        "ThemeBundles":{
+            "Themes":{
+                "Living Room":[
+                    "https://d2ywba6r11jsvi.cloudfront.net/static/Theme/Living+Room/lvr_th00",
+                    "https://d2ywba6r11jsvi.cloudfront.net/static/Theme/Living+Room/lvr_th01",
+                    "https://d2ywba6r11jsvi.cloudfront.net/static/Theme/Living+Room/lvr_th02",
+                    "https://d2ywba6r11jsvi.cloudfront.net/static/Theme/Living+Room/lvr_th03"      
+                ],
+                "Master Bedroom":[
+                    "https://d2ywba6r11jsvi.cloudfront.net/static/Theme/Master+Bedroom/m_bd_th00",
+                    "https://d2ywba6r11jsvi.cloudfront.net/static/Theme/Master+Bedroom/m_bd_th01",
+                    "https://d2ywba6r11jsvi.cloudfront.net/static/Theme/Master+Bedroom/m_bd_th02",
+                    "https://d2ywba6r11jsvi.cloudfront.net/static/Theme/Master+Bedroom/m_bd_th03"
+                ],
+                "Normal Bedroom":[
+                    "https://d2ywba6r11jsvi.cloudfront.net/static/Theme/Normal+Bedroom/n_bd_th00",
+                    "https://d2ywba6r11jsvi.cloudfront.net/static/Theme/Normal+Bedroom/n_bd_th01",
+                    "https://d2ywba6r11jsvi.cloudfront.net/static/Theme/Normal+Bedroom/n_bd_th02",
+                    "https://d2ywba6r11jsvi.cloudfront.net/static/Theme/Normal+Bedroom/n_bd_th03"
+                ],
+                "Teenage Bedroom":[
+                    "https://d2ywba6r11jsvi.cloudfront.net/static/Theme/Teenage+Bedroom/t_bd_th00.android",
+                    "https://d2ywba6r11jsvi.cloudfront.net/static/Theme/Teenage+Bedroom/t_bd_th01.android"
+                ],
+                "Kitchen Room":[
+                    "https://d2ywba6r11jsvi.cloudfront.net/static/Theme/Kitchen/k_th00",
+                    "https://d2ywba6r11jsvi.cloudfront.net/static/Theme/Kitchen/k_th01",
+                    "https://d2ywba6r11jsvi.cloudfront.net/static/Theme/Kitchen/k_th02",
+                    "https://d2ywba6r11jsvi.cloudfront.net/static/Theme/Kitchen/k_th03"
+                ],
+                "Master Bathroom":[
+                    "https://d2ywba6r11jsvi.cloudfront.net/static/Theme/Master+Bathroom/m_br_th00.android",
+                    "https://d2ywba6r11jsvi.cloudfront.net/static/Theme/Master+Bathroom/m_br_th01.android",
+                    "https://d2ywba6r11jsvi.cloudfront.net/static/Theme/Master+Bathroom/m_br_th02.android",
+                    "https://d2ywba6r11jsvi.cloudfront.net/static/Theme/Master+Bathroom/m_br_th03.android"
+                ],
+                "Normal Bathroom":[
+                    "https://d2ywba6r11jsvi.cloudfront.net/static/Theme/Normal+Bathroom/n_br_th00.android",
+                    "https://d2ywba6r11jsvi.cloudfront.net/static/Theme/Normal+Bathroom/n_br_th01.android",
+                    "https://d2ywba6r11jsvi.cloudfront.net/static/Theme/Normal+Bathroom/n_br_th02.android",
+                    "https://d2ywba6r11jsvi.cloudfront.net/static/Theme/Normal+Bathroom/n_br_th03.android"
+                ]
+                   
+            }
+        },
+        "GenericBundles":{
+            "Bed":{
+                "Meshes":{
+                    "5X6":[
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Bed/Meshes/gn_bd_5x6_00",
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Bed/Meshes/gn_bd_5x6_01",
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Bed/Meshes/gn_bd_5x6_02"
+
+                    ],
+                    "6X6":[
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Bed/Meshes/gn_bd_6x6_00",
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Bed/Meshes/gn_bd_6x6_01",
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Bed/Meshes/gn_bd_6x6_02"
+                    ],
+                    "3X6":[
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Bed/Meshes/gn_bd_3x6_00"
+                    ],
+                    "3X7":[
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Bed/Meshes/gn_bd_3x7_00"
+                    ]
+                },
+                "Materials":[
+                    "https://onedrive.live.com/download?cid=4BE5DA150F6EEFFD&resid=4BE5DA150F6EEFFD%212145&authkey=ALlFJHDDTQ2O9tI",
+                    "https://onedrive.live.com/download?cid=4BE5DA150F6EEFFD&resid=4BE5DA150F6EEFFD%212143&authkey=AOt4ZysLiUVt-cg",
+                    "https://onedrive.live.com/download?cid=4BE5DA150F6EEFFD&resid=4BE5DA150F6EEFFD%212141&authkey=ACEny7SuCSueNfs",
+                    "https://onedrive.live.com/download?cid=4BE5DA150F6EEFFD&resid=4BE5DA150F6EEFFD%212142&authkey=ANY1uWzoKmavX3s"
+                ]
+            },
+            "Dining Table":{
+                "Meshes":{
+                    "S4":[
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Dining+Table/Meshes/gn_dn_s4_00",
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Dining+Table/Meshes/gn_dn_s4_01"
+                    ],
+                    "S6":[
+                        "https://onedrive.live.com/download?cid=4BE5DA150F6EEFFD&resid=4BE5DA150F6EEFFD%212152&authkey=ABIulYff64krV7o"
+                    ]
+                },
+                "Materials":[
+                    "https://onedrive.live.com/download?cid=4BE5DA150F6EEFFD&resid=4BE5DA150F6EEFFD%212150&authkey=AHLQ3H3Bbdvq9_Q",
+                    "https://onedrive.live.com/download?cid=4BE5DA150F6EEFFD&resid=4BE5DA150F6EEFFD%212151&authkey=AD7u6svMNS0Qh1c"
+                ]
+            },
+            "Sofa":{
+                "Meshes":{
+                    "S4":[
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Sofa/Meshes/gn_sf_s4_00",
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Sofa/Meshes/gn_sf_s4_01"
+
+                    ],
+                    "S5":[
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Sofa/Meshes/gn_sf_s5_00",
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Sofa/Meshes/gn_sf_s5_01"
+                    ],
+                    "S6":[
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Sofa/Meshes/gn_sf_s6_00",
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Sofa/Meshes/gn_sf_s6_01"
+                    ],
+                    "S8":[
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Sofa/Meshes/gn_sf_s8_00",
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Sofa/Meshes/gn_sf_s8_01"
+                    ]
+                },
+                "Materials":[
+                    "https://onedrive.live.com/download?cid=4BE5DA150F6EEFFD&resid=4BE5DA150F6EEFFD%212148&authkey=AFODrmph_3DK2sQ",
+                    "https://onedrive.live.com/download?cid=4BE5DA150F6EEFFD&resid=4BE5DA150F6EEFFD%212147&authkey=AGPQ1hAh2uWmZ2Y"
+                    
+                ]
+            },
+            "Cabinet":{
+                "Materials":{
+                    "Kitchen":[
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Cabinet/Material/gn_cab_k_00",
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Cabinet/Material/gn_cab_k_01"
+                    ],
+                    "Room":[
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Cabinet/Material/gn_cab_rm_00",
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Cabinet/Material/gn_cab_rm_01",
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Cabinet/Material/gn_cab_rm_02"
+                    ]
+                }
+            },
+            "Wall":{
+               "Materials":{
+                   "Bathroom":[
+                       "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Walls/Material/gn_wl_br_00",
+                       "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Walls/Material/gn_wl_br_01",
+                       "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Walls/Material/gn_wl_br_02"
+                   ],
+                   "Room":[
+                       "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Walls/Material/gn_wl_rm_00",
+                       "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Walls/Material/gn_wl_rm_01",
+                       "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Walls/Material/gn_wl_rm_02",
+                       "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Walls/Material/gn_wl_rm_03"
+                   ]
+                }
+            },
+            "Floor":{
+                "Materials":{
+                    "Kitchen":[
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Floors/Material/gn_fl_k_00",
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Floors/Material/gn_fl_k_01"
+                    ],
+                    "Bathroom":[
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Floors/Material/gn_fl_br_00",
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Floors/Material/gn_fl_br_01",
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Floors/Material/gn_fl_br_02"
+                    ],
+                    "Room":[
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Floors/Material/gn_fl_rm_00",
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Floors/Material/gn_fl_rm_01",
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Floors/Material/gn_fl_rm_02",
+                        "https://d2ywba6r11jsvi.cloudfront.net/static/Generic/Floors/Material/gn_fl_rm_03"
+                    ]
+                }
+
+                
+            }
+        }
+    }
+}

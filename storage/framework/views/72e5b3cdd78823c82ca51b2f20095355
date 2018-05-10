@@ -1,0 +1,195 @@
+<style>
+    .modal-body p {
+        overflow: hidden;
+        width: 100%;
+    }
+.badge-notify{
+   background:red;
+   position:relative;
+  
+  }
+  .tablegridrow.read {
+    background-color: #E3F5D7;
+}
+  
+.tablegrid .tablegridrow.read:nth-child(2n) {
+    background-color: #E3F5D7;
+}
+
+
+</style>
+
+<div class="headerbg">
+    <div class="header" style="background:#000;">
+        <div class="logo"><img src="<?php echo e(asset('images/logo.jpg')); ?>"/></div>
+        <div class="navbar-header navbar-default">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="mobilehider">
+            <div class="topright" style="padding-top:5px;">
+                <div class="staboxmamin">
+                    <div class="orangebox">
+                        <div class="orangeicon"><i style="font-size: 40px; color: #ffffff;" class="fa fa-desktop" aria-hidden="true"></i></div>
+                    </div>
+                    <div class="orangright">
+                        <b>Last Login IP </b><br/>
+                        <?php echo e(Auth::user('admin')->last_login_ip); ?>
+
+                    </div>
+                </div>
+                <div class="staboxmamin">
+                    <div class="orangebox" style="background: #ffce55;">
+                        <div class="orangeicon"><i  style="font-size: 40px; color: #ffffff;" class="fa fa-clock-o" aria-hidden="true"></i></div>
+                    </div>
+                    <div class="orangright">
+                        <b>Last Login Time </b><br/>
+                        <?php echo e(date('F j, Y H:i:s',strtotime(Auth::user('admin')->last_login))); ?>
+
+
+                    </div>
+                </div>
+                <div class="staboxmamin">
+                    <div class="orangebox" style="background: #2dc3e8;">
+                        <div class="orangeicon"><i style="font-size: 40px; color: #ffffff;" class="fa fa-server" aria-hidden="true"></i></div>
+                    </div>
+                    <div class="orangright">
+                        <b>Current Server Time</b><br/>
+                        <?php echo e(date('F j, Y H:i:s',time())); ?>
+
+                    </div>
+                </div>
+                <div class="staboxmamin">
+                    <div class="adminrightname">
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="border: none;">
+                                <img src="<?php echo e(asset('images/welcomeadmin.jpg')); ?>"/> Welcome, <?php echo e(\Auth::user('admin')->name); ?>
+
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li>
+                                    <a style="color: #e45b62;cursor:pointer" data-toggle="modal" data-target="#changePassword">
+                                        <i class="fa fa-lock" aria-hidden="true"></i> Change Password
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo e(action('Auth\AdminController@getLogout')); ?>" style="color: #e45b62;">
+                                        <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearboth"></div>
+    </div>
+</div>
+<div class="menubg">
+    <div id="menu">
+
+        <div class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <?php if (\Auth::user('admin')->is_main == 1) { ?>  
+                            <li <?php if($active == 'overview'): ?> class="active" <?php endif; ?>><a href="<?php echo e(adminurl('home')); ?>">Dashboard</a></li>
+                            <li <?php if($active == 'categories'): ?> class="active" <?php endif; ?>><a href="<?php echo e(adminurl('categories')); ?>">Categories</a></li>
+                            <li <?php if($active == 'awscategories'): ?> class="active" <?php endif; ?>><a href="<?php echo e(adminurl('awscategories')); ?>">Aws Categories</a></li>
+                            <li <?php if($active == 'departments'): ?> class="active" <?php endif; ?>><a href="<?php echo e(adminurl('departments')); ?>">Departments</a></li>
+                            <li <?php if($active == 'ticket_category'): ?> class="active" <?php endif; ?>><a href="<?php echo e(adminurl('ticket_category')); ?>">Ticket Category</a></li>
+                            <li <?php if($active == 'layouts'): ?> class="active" <?php endif; ?>><a href="<?php echo e(adminurl('layouts')); ?>">Layouts</a></li>
+                            <li <?php if($active == 'attributes'): ?> class="active" <?php endif; ?>><a href="<?php echo e(adminurl('attributes')); ?>">Attributes </a></li>
+                            <li <?php if($active == 'themes'): ?> class="active" <?php endif; ?>><a href="<?php echo e(adminurl('themes')); ?>">Themes </a></li>	<?php } ?>
+                            <li <?php if($active == 'projects'): ?> class="active" <?php endif; ?>><a href="<?php echo e(adminurl('projects')); ?>">Projects <span class="badge badge-notify"><?php echo e(newproject()); ?></span> </a></li>
+                            <li <?php if($active == 'support'): ?> class="active" <?php endif; ?>><a href="<?php echo e(adminurl('support')); ?>">Support <span class="badge badge-notify"><?php echo e(newtickets()); ?></span></a></li>
+                            <?php if (\Auth::user('admin')->is_main == 1) { ?>  
+                                <!-- <li <?php if($active == 'projects'): ?> class="active" <?php endif; ?>><a href="<?php echo e(adminurl('projects')); ?>">Projects </a></li>
+                                <li <?php if($active == 'products'): ?> class="active" <?php endif; ?>><a href="<?php echo e(adminurl('products')); ?>">Product </a></li>-->
+                                <!--<li <?php if($active == 'affiliates'): ?> class="active" <?php endif; ?>><a href="<?php echo e(adminurl('affiliate')); ?>">Affiliate</a></li>-->
+                                <!--<li <?php if($active == 'orders'): ?> class="active" <?php endif; ?>><a href="<?php echo e(adminurl('orders')); ?>">Order</a></li>
+                                <li <?php if($active == 'invoices'): ?> class="active" <?php endif; ?>><a href="<?php echo e(adminurl('invoices')); ?>">Invoice</a></li>-->
+                                <li <?php if($active == 'members'): ?> class="active" <?php endif; ?>><a href="<?php echo e(adminurl('members')); ?>">Customers</a></li>
+                                <li <?php if($active == 'advert'): ?> class="active" <?php endif; ?>><a href="<?php echo e(adminurl('advert')); ?>">Advert</a></li>                       				       
+                                <li <?php if($active == 'settings'): ?> class="active" <?php endif; ?>><a href="<?php echo e(adminurl('settings')); ?>">Settings</a></li>
+                            <?php } ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Menu Code Over -->
+    </div>
+
+
+
+
+    <div class="clearboth"></div>
+
+</div>
+
+
+<div class="mobilehider2">
+    <div class="topright">
+        <div class="staboxmamin">
+            <div class="orangebox">
+                <div class="orangeicon"><i style="font-size: 40px; color: #ffffff;" class="fa fa-desktop" aria-hidden="true"></i></div>
+            </div>
+            <div class="orangright">
+                <b>Last Login IP </b><br/>
+                123.237.230.201
+            </div>
+        </div>
+        <div class="staboxmamin">
+            <div class="orangebox" style="background: #ffce55;">
+                <div class="orangeicon"><i  style="font-size: 40px; color: #ffffff;" class="fa fa-clock-o" aria-hidden="true"></i></div>
+            </div>
+            <div class="orangright">
+                <b>Last Login Time </b><br/>
+                May 21, 2015 15:49:45
+            </div>
+        </div>
+        <div class="staboxmamin">
+            <div class="orangebox" style="background: #2dc3e8;">
+                <div class="orangeicon"><i style="font-size: 40px; color: #ffffff;" class="fa fa-server" aria-hidden="true"></i></div>
+            </div>
+            <div class="orangright">
+                <b>Current Server Time</b><br/>
+                May 21, 2015 17:42:52
+            </div>
+        </div>
+    </div>
+</div>
+<div id="changePassword" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Change password</h4>
+                <div id="err_msg"></div>
+                <div id="success_msg"></div>
+            </div>
+            <form name="changepassword" id="changepassword" method="post">
+                <input type="hidden" name="adminid" value="<?php echo e(\Auth::user('admin')->id); ?>">
+                <div class="modal-body" style="padding-right:10px;">
+                    <p><input type="password" placeholder="Current password" name="currentpassword" id="currentpassword" class="changepasswordbtn form-control" style="width:90%"><br></p>
+                    <p><input type="password" placeholder="New password" name="newpassword" id="newpassword" class="changepasswordbtn form-control" style="width:90%"><br></p>
+                    <p><input type="password" placeholder="Confirm new password" name="confirmnewpassword" id="confirmnewpassword" class="changepasswordbtn form-control" style="width:90%"><br></p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary">Change</button> 
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

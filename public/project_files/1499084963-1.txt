@@ -1,0 +1,11 @@
+ TITLE: Microsoft Visual Studio
+------------------------------
+
+Could not retrieve the table information for the connection manager 'Excel Connection Manager '.
+Failed to connect to the source using the connection manager 'Excel Connection Manager '
+
+------------------------------
+BUTTONS:
+
+OK
+------------------------------

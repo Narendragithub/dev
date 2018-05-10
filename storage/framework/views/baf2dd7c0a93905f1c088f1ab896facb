@@ -1,0 +1,57 @@
+<div role="tabpanel" class="tab-pane  animated fadeInRight" id="publish">
+<!--    <div class="tab-header">
+        <h2>Publishing Settings</h2>
+    </div>
+
+    <div class="clearfix"></div>
+    <form class="form-horizontal store" name="contact" id="contact" method="POST" action="<?php echo e(url('project/savepublish')); ?>" enctype="multipart/form-data">
+        <?php echo csrf_field(); ?>
+
+        <input class="form-control input-sm" id="pidmenu1" type="hidden" value="<?php echo e($project->id); ?>" name="pid">
+        <div class="card-body card-padding">
+
+            <div class="form-group">
+                <label for="" class="col-sm-2 control-label">Store Visibility</label>
+                <div class="col-sm-10">
+                    <div class="fg-line">
+                        <label class="radio radio-inline m-r-20">
+                            <input type="radio" name="is_public" value="1" <?php if($project->is_public == 1): ?> checked <?php endif; ?>>
+                            <i class="input-helper"></i>  
+                            Public
+                        </label>
+                        <?php if($project->premium_service > 0): ?>
+                        <label class="radio radio-inline m-r-20">
+                            <input type="radio" name="is_public" value="0" <?php if($project->is_public == 0): ?> checked <?php endif; ?>>
+                            <i class="input-helper"></i>  
+                            Private
+                        </label>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <?php if($project->premium_service > 0): ?>
+        <button type="submit" class="btn btn-info pull-right">Save<i class="fa fa-chevron-right"></i></button>
+        <?php endif; ?>
+        <br />
+    </form>-->
+    
+    <div class="tab-header">
+        <h2>Sharing Options</h2>
+    </div>
+    <div>
+     </br>   
+     <b> QR Code :</b>
+    </br>
+    <?php echo QrCode::size(200)->generate(url().'/pid/'.$project->alias); ?>
+
+	  </br>  
+    <b> Url :  <?php echo e(url()); ?>/pid/<?php echo e($project->alias); ?></b>
+    </div>
+   
+     </br>
+    <b> Embed Link : &lt;embed src="<?php echo url().'/pid/'.$project->alias; ?>" width="500px;"&gt </b><br>
+	<i>Paste this code in your website</i>
+</div>

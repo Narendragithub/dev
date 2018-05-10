@@ -1,0 +1,155 @@
+<?php $__env->startSection('content'); ?>
+<section id="main" data-layout="layout-1">
+ <?php echo $__env->make('layouts/aside', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+      <section id="content">
+        <div class="container">
+                    <div class="block-header">
+                        <h2>Messages</h2>
+                    </div>
+                
+                    <div class="card m-b-0" id="messages-main">
+                        
+                        <div class="ms-menu">
+                            <div class="ms-block">
+                                <div class="ms-user">
+                                   
+                                    <div><b>Ticket ID :  <?php echo e($ticketdetails->ticket_id); ?></b></div>
+                                </div>
+                            </div>
+                            
+                            <!--<div class="ms-block">
+                                <div class="dropdown">
+                                    <a class="btn btn-primary btn-block waves-effect" href="#" data-toggle="dropdown">Messages <i class="caret m-l-5"></i></a>
+
+                                    <ul class="dropdown-menu dm-icon w-100">
+                                        <li><a href="#"><i class="zmdi zmdi-email"></i> Messages</a></li>
+                                        <li><a href="#"><i class="zmdi zmdi-account"></i> Contacts</a></li>
+                                        <li><a href="#"><i class="zmdi zmdi-format-list-bulleted"> </i>Todo Lists</a></li>
+                                    </ul>
+                                </div>
+                            </div>-->
+                            
+                            <div class="listview lv-user m-t-20">
+                                <div class="lv-item media active">
+                                    
+                                    <div class="media-body">
+                                        <div class="lv-title">Subject : <?php echo e($ticketdetails->subject); ?></div>
+                                        <div class="lv-small"><hr></div>
+                                        <div class="lv-title">Department : <?php $department=$ticketdetails->department($ticketdetails->department)->first();
+                                    ?>
+                                            <?php echo e($department->ticket_category_name); ?></div>
+                                         <div class="lv-small"><hr></div>
+                                        <div class="lv-title">Created Date : <br><?php echo e($ticketdetails->created_at); ?></div>
+                                         <div class="lv-small"><hr></div>
+                                        <div class="lv-title">Last Update Date : <br><?php echo e($ticketdetails->updated_at); ?></div>
+                                         <div class="lv-small"><hr></div>
+                                        <div class="lv-title">Ticket Status : <span style="color:green">
+                                        <?php if($ticketdetails->status==0): ?>Open <?php else: ?> Closed <?php endif; ?> </span></div>
+                                        
+                                        
+                                    </div>
+                                </div>
+                             </div>
+
+                            
+                        </div>
+                        
+                        <div class="ms-body">
+                            <div class="listview lv-message">
+                                <div class="lv-header-alt clearfix">
+                                    <div id="ms-menu-trigger">
+                                        <div class="line-wrap">
+                                            <div class="line top"></div>
+                                            <div class="line center"></div>
+                                            <div class="line bottom"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="lvh-label hidden-xs">
+                                        
+                                        
+                                    </div>
+                                    
+                                    
+                                            <a href="<?php echo e(url('/closeticket/'.$ticketdetails->id)); ?>" class="btn bgm-purple waves-effect pull-right">Close Ticket</a>
+                                        
+                                </div>
+                                
+                                <div class="lv-body">
+                                    <div class="lv-item media">
+                                       
+                                        <div class="media-body" style="padding-left: 50px;">
+                                            <div class="ms-item" style="min-width: 80%;">
+                                               <?php echo e($ticketdetails->message); ?>
+
+                                            </div>
+                                            <small class="ms-date">Created on <i class="zmdi zmdi-time"></i> <?php echo e($ticketdetails->created_at); ?> by You</small>
+                                        </div>
+                                    </div>
+                                    <?php foreach($ticketresponses as $response): ?>
+                                    <?php if($response->response_from == 'client'): ?>
+                                    <div class="lv-item media">
+                                       
+                                        <div class="media-body" style="padding-left: 50px;">
+                                            <div class="ms-item" style="min-width:80%;">
+                                               <?php echo e($response->response); ?>
+
+                                            </div>
+                                            <small class="ms-date">Created on <i class="zmdi zmdi-time"></i> <?php echo e($ticketdetails->created_at); ?> by You 
+                                            | <?php if($response->file1){?>  <a target="_blank" href="<?php echo e(url('project_images/tickets/'.$response->file1)); ?>"><i class="zmdi zmdi-hc-2x zmdi-attachment"></i><?php echo e($response->file1); ?> </a><?php }?></small>
+                                        </div>
+                                    </div>
+                                    <?php else: ?>
+                                     <div class="lv-item media right">
+                                       
+                                        <div class="media-body" style="padding-right: 50px;">
+                                            <div class="ms-item" style="min-width: 80%;">
+                                                <?php echo e($response->response); ?>
+
+                                            </div>
+                                            <small class="ms-date"><?php if($response->file1){?>  <a target="_blank" href="<?php echo e(url('project_images/tickets/'.$response->file1)); ?>"><i class="zmdi zmdi-hc-2x zmdi-attachment"></i><?php echo e($response->file1); ?> </a><?php }?> | Created on <i class="zmdi zmdi-time"></i> <?php echo e($ticketdetails->created_at); ?> by Admin</small>
+                                        </div>
+                                    </div>
+                                    <?php endif; ?>                                    
+                                    <?php endforeach; ?>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                </div>
+                                 <?php if($ticketdetails->status==0): ?>
+                                 <form action="<?php echo e(url('/ticketresponse')); ?>" method="post" enctype="multipart/form-data" id="ticketresponse" name="ticketresponse">
+                      <?php echo e(csrf_field()); ?>
+
+                        <input type="hidden" name="ticket_id" value="<?php echo e($ticketdetails->ticket_id); ?>">
+                        <input type="hidden" name="response_from" value="client">
+                                <div class="lv-footer ms-reply">
+                                    <textarea placeholder="Post reply" name="message"></textarea>
+                                    
+                                    <button ><i class="zmdi zmdi-mail-send"></i></button>
+
+                                </div>
+                        <div class="col-xs-12">
+                                <p class="f-500 c-black m-b-20">File For Upload</p>
+                                    
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <span class="btn btn-primary btn-file m-r-10">
+                                            <span class="fileinput-new">Select file</span>
+                                            <span class="fileinput-exists">Change</span>
+                                            <input type="file" name="image1">
+                                        </span>
+                                        <span class="fileinput-filename"></span>
+                                        <a href="#" class="close fileinput-exists" data-dismiss="fileinput">&times;</a>
+                                    </div> 
+                        </div>
+                                 </form>
+                                 <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+      </section>
+</section>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts/main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

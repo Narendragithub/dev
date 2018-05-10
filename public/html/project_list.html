@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie9"><![endif]-->
+    
+<html>
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Cubedot</title>
+
+        <!-- Vendor CSS -->
+        <link href="vendors/bower_components/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
+        <link href="vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
+        <link href="vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.css" rel="stylesheet">
+        <link href="vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" rel="stylesheet">
+        <link href="vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet">        
+            
+        <!-- CSS -->
+        <link href="css/app.min.1.css" rel="stylesheet">
+        <link href="css/app.min.2.css" rel="stylesheet">
+        <link href="css/Style.css" rel="stylesheet" />
+   
+</head>
+    <body class="toggled sw-toggled">
+
+       <header id="header" class="clearfix" data-current-skin="teal">
+        <ul class="header-inner">
+            <div class="logo visible-xs" style="text-align:center">
+                <a href="home.html">
+                    <img src="img/play_prism_hlock_2x.png" style="width: 166px;"></a>
+            </div>
+            <li id="menu-trigger" data-trigger="#sidebar">
+                <div class="line-wrap">
+                    <div class="line top"></div>
+                    <div class="line center"></div>
+                    <div class="line bottom"></div>
+                </div>
+            </li>
+
+            <li class="logo hidden-xs">
+                <a href="home.html">
+                    <img src="img/play_prism_hlock_2x.png" style="width: 166px;"></a>
+            </li>
+
+            <li class="pull-right">
+                    <ul class="top-menu">
+                    <li class="dropdown">
+                            <a data-toggle="dropdown" href="#" aria-expanded="false">
+                                <i class="zmdi zmdi-account-circle"></i> Welcome Deepak <i class="zmdi zmdi-caret-down"></i></a>
+                            <ul class="dropdown-menu dm-icon pull-right">
+                                
+                                <li>
+                                    <a href="edit_profile.html"><i class="zmdi zmdi-account"></i>Edit Profile</a>
+                                </li>
+                                <li>
+                                    <a href="account_reset.html"><i class="zmdi zmdi-settings"></i> Account Settings</a>
+                                </li>
+                                <li>
+                                    <a href="my_projects.html"><i class="zmdi zmdi-assignment-check"></i> My Projects</a>
+                                </li>
+                                <li class="divider hidden-xs"></li>
+                                <li>
+                                    <a href="#"><i class="zmdi zmdi-power"></i> Logout</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!--<li class="hidden-xs" id="chat-trigger" data-trigger="#chat">
+                            <a href="#"><i class="tm-icon zmdi zmdi-comment-alt-text"></i></a>
+                        </li>-->
+                    </ul>
+                </li>
+        </ul>
+
+        <!-- Top Search Content -->
+        <div id="top-search-wrap">
+            <div class="tsw-inner">
+                <i id="top-search-close" class="zmdi zmdi-arrow-left"></i>
+                <input type="text">
+            </div>
+        </div>
+
+    </header>
+        
+        <section id="main" data-layout="layout-1">
+            <aside id="sidebar" class="sidebar c-overflow">
+               <!-- <div class="profile-menu">
+                    <a href="#">
+                        <div class="profile-pic">
+                            <img src="img/profile-pics/1.jpg" alt="">
+                        </div>
+
+                        <div class="profile-info">
+                            Malinda Hollaway
+
+                            <i class="zmdi zmdi-caret-down"></i>
+                        </div>
+                    </a>
+
+                    <ul class="main-menu">
+                        <li>
+                            <a href="profile-about.html"><i class="zmdi zmdi-account"></i> View Profile</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="zmdi zmdi-input-antenna"></i> Privacy Settings</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="zmdi zmdi-settings"></i> Settings</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="zmdi zmdi-time-restore"></i> Logout</a>
+                        </li>
+                    </ul>
+                </div>-->
+
+                <ul class="main-menu">
+                   
+                    <li class="">
+                        
+                        
+                        <a href="#">  <span class="span1 green_p"> <img src="img/index.png" /></span></a>
+
+
+                    </li> <!--
+                    <li class="">
+                       
+                        <span class="span1 red_p"><img src="img/index02.png" /></span>
+                        <a href="#"> </a>
+                    </li>
+                   <li class="">
+                        <span class="span1 orange_p"> <img src="img/index03.png" /></span>
+                        <a href="#"> MUSIC</a>
+                    </li>
+                    <li class="">
+                         <span class="span1 grey_p"> <img src="img/index04.png" /></span>
+                        <a href="#"> BOOKS</a>
+                    </li>
+                    <li class="">
+                         <span class="span1 blue_p"><img src="img/index05.png" /></span>
+                        <a href="#"> NEWSSTAND</a>
+                    </li>
+                    <li class="">
+                         <span class="span1 dblue_p"><img src="img/index06.png" /></span>
+                        <a href="#"> DEVICES</a>
+                    </li>-->
+             
+                </ul>
+
+               <!-- <ul class="bottom-menu main-menu">
+
+                    <li> Account</li>
+                    <li> Redeem</li>
+                    <li> Buy Gift Cart</li>
+                    <li> My wishlist</li>
+                    <li> My play activity</li>
+                    <li> Parent Guide</li>
+
+                </ul>-->
+
+
+            </aside>
+            
+          
+            
+            
+            <section id="content">
+                <div class="container">
+<div class="row">
+    
+
+  <div class="col-md-12">
+
+        <div class="card my-project">
+            <div class="card-body card-padding">
+
+ <div class="dash-widgets landing-widget">
+                        <div class="row">
+
+                              <div class="card">
+                        <div class="card-header">
+                            <h3><span style="color:#009688;">My</span> Projects</h3>
+
+                            <!--model start-->
+                            <div class="row">
+                  <button data-toggle="modal" href="#modalDefault" class="btn btn-sm btn-default pull-right bgm-teal">Add New Project</button>
+</div>
+
+
+          <div class="modal fade" id="modalDefault" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title text-center">Select Service</h4>
+                                        </div>
+                                        <hr />
+                                        <div class="modal-body model-min-height text-center">
+                                                <label class="radio radio-inline m-r-20">
+                                <input type="radio" name="inlineRadioOptions" value="option1">
+                                <i class="input-helper"></i>  
+                                Free Service
+                            </label>
+                            
+                            <label class="radio radio-inline m-r-20">
+                                <input type="radio" name="inlineRadioOptions" value="option2">
+                                <i class="input-helper"></i>  
+                               Premium Service
+                            </label>
+                                        </div>
+                                        <hr />
+                                        <div class="modal-footer">
+                                            <center>
+                                            <button type="button" class="btn btn-primary">Continue</button>
+                                            </center>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--model end-->
+
+
+
+                        </div>
+                        
+                        <div class="table-responsive text-center">
+                            <table id="data-table-basic" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th data-column-id="id" data-type="numeric">S No.</th>
+                                        <th data-column-id="sender">Image</th>
+                                        <th data-column-id="received" data-order="desc">Title</th>
+                                        <th data-column-id="received1" data-order="desc">Service</th>
+                                        <th data-column-id="received2" data-order="desc">Ave. rating</th>
+                                        <th data-column-id="received3" data-order="desc">Last Update</th>
+                                        <th data-column-id="received4" data-order="desc">Status</th>
+                                        <th data-column-id="received5" data-order="desc">action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><img src="img/table-img.jpg"/></td>
+										<td>Project 1</td>
+                                        <td>Premium</td>
+                                        <td>4.83 / 30</td>
+                                        <td>jan 27 2016</td>
+                                        <td>Published</td>
+                                        <td>
+                                           <span><img src="img/warning.png" /></span>
+                                            
+                                            <span> <img src="img/prohibition.png" /></span> 
+                                        </td>
+                                    </tr>
+                                     <tr>
+                                        <td>2</td>
+                                        <td><img src="img/table-img.jpg"/></td>
+                                        <td>Project 2</td>
+                                        <td>Premium</td>
+                                        <td>4.83 / 30</td>
+                                        <td>jan 27 2016</td>
+                                        <td>Published</td>
+                                        <td>
+                                           <span><img src="img/warning.png" /></span>
+                                            
+                                            <span> <img src="img/prohibition.png" /></span> 
+                                        </td>
+                                    </tr>
+                                     <tr>
+                                        <td>3</td>
+                                        <td><img src="img/table-img.jpg"/></td>
+                                        <td>Project 3</td>
+                                        <td>Premium</td>
+                                        <td>4.83 / 30</td>
+                                        <td>jan 27 2016</td>
+                                        <td>Published</td>
+                                        <td>
+                                           <span><img src="img/warning.png" /></span>
+                                            
+                                            <span> <img src="img/prohibition.png" /></span> 
+                                        </td>
+                                    </tr>
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                            
+                        </div>
+     <hr />
+                    </div>
+
+              
+
+            </div>
+
+        </div>
+       
+
+    </div>
+</div>
+                    </div>
+                   
+                 
+            </section>
+        </section>
+        
+        <footer id="footer">
+            Copyright &copy; 2015 Material Admin
+            
+            <ul class="f-menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Reports</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </footer>
+
+        <!-- Page Loader -->
+        <div class="page-loader">
+            <div class="preloader pls-blue">
+                <svg class="pl-circular" viewBox="25 25 50 50">
+                    <circle class="plc-path" cx="50" cy="50" r="20" />
+                </svg>
+
+                <p>Please wait...</p>
+            </div>
+        </div>
+        
+        <!-- Older IE warning message -->
+        <!--[if lt IE 9]>
+            <div class="ie-warning">
+                <h1 class="c-white">Warning!!</h1>
+                <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
+                <div class="iew-container">
+                    <ul class="iew-download">
+                        <li>
+                            <a href="http://www.google.com/chrome/">
+                                <img src="img/browsers/chrome.png" alt="">
+                                <div>Chrome</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.mozilla.org/en-US/firefox/new/">
+                                <img src="img/browsers/firefox.png" alt="">
+                                <div>Firefox</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.opera.com">
+                                <img src="img/browsers/opera.png" alt="">
+                                <div>Opera</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.apple.com/safari/">
+                                <img src="img/browsers/safari.png" alt="">
+                                <div>Safari</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                                <img src="img/browsers/ie.png" alt="">
+                                <div>IE (New)</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <p>Sorry for the inconvenience!</p>
+            </div>   
+        <![endif]-->
+        
+        <!-- Javascript Libraries -->
+        <script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        
+        <script src="vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="vendors/bower_components/Waves/dist/waves.min.js"></script>
+        <script src="vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
+        <script src="vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js"></script>  
+        <script src="vendors/bootgrid/jquery.bootgrid.updated.min.js"></script>
+        
+        <!-- Placeholder for IE9 -->
+        <!--[if IE 9 ]>
+            <script src="vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
+        <![endif]-->
+        
+        <script src="js/functions.js"></script>
+        <script src="js/demo.js"></script>
+
+        <!-- Data Table
+        <script type="text/javascript">
+            $(document).ready(function () {
+                //Basic Example
+                $("#data-table-basic").bootgrid({
+                    css: {
+                        icon: 'zmdi icon',
+                        iconColumns: 'zmdi-view-module',
+                        iconDown: 'zmdi-expand-more',
+                        iconRefresh: 'zmdi-refresh',
+                        iconUp: 'zmdi-expand-less'
+                    },
+                });
+
+                //Selection
+                $("#data-table-selection").bootgrid({
+                    css: {
+                        icon: 'zmdi icon',
+                        iconColumns: 'zmdi-view-module',
+                        iconDown: 'zmdi-expand-more',
+                        iconRefresh: 'zmdi-refresh',
+                        iconUp: 'zmdi-expand-less'
+                    },
+                    selection: true,
+                    multiSelect: true,
+                    rowSelect: true,
+                    keepSelection: true
+                });
+
+                //Command Buttons
+                $("#data-table-command").bootgrid({
+                    css: {
+                        icon: 'zmdi icon',
+                        iconColumns: 'zmdi-view-module',
+                        iconDown: 'zmdi-expand-more',
+                        iconRefresh: 'zmdi-refresh',
+                        iconUp: 'zmdi-expand-less'
+                    },
+                    formatters: {
+                        "commands": function (column, row) {
+                            return "<button type=\"button\" class=\"btn btn-icon command-edit waves-effect waves-circle\" data-row-id=\"" + row.id + "\"><span class=\"zmdi zmdi-edit\"></span></button> " +
+                                "<button type=\"button\" class=\"btn btn-icon command-delete waves-effect waves-circle\" data-row-id=\"" + row.id + "\"><span class=\"zmdi zmdi-delete\"></span></button>";
+                        }
+                    }
+                });
+            });
+        </script> -->
+        
+    </body>
+  
+
+</html>

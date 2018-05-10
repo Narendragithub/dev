@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Layouts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>Layout1</Name>
+  <features>
+    <OrbitCamera>
+      <Orbittouch>
+        <TargetPosition>
+          <TargetPositionX>1.07</TargetPositionX>
+          <TargetPositionY>3.54</TargetPositionY>
+          <TargetPositionZ>0</TargetPositionZ>
+        </TargetPosition>
+        <ColliderSize>
+          <ColliderSizeX>17.27</ColliderSizeX>
+          <ColliderSizeY>1.76</ColliderSizeY>
+          <ColliderSizeZ>11.96</ColliderSizeZ>
+        </ColliderSize>
+        <StartValue>15</StartValue>
+        <MaxValue>18</MaxValue>
+        <MinValue>2</MinValue>
+      </Orbittouch>
+      <Orbitvr>
+        <LimitX>9</LimitX>
+        <LimitY>5</LimitY>
+        <LimitZ>5.86</LimitZ>
+      </Orbitvr>
+    </OrbitCamera>
+    <WalkThrough>
+      <PlayerPosition>
+        <PlayerPositionX>-2</PlayerPositionX>
+        <PlayerPositionY>1.729</PlayerPositionY>
+        <PlayerPositionZ>4.88</PlayerPositionZ>
+      </PlayerPosition>
+      <PlayerRotation>
+        <PlayerRotationX>0</PlayerRotationX>
+        <PlayerRotationY>180</PlayerRotationY>
+        <PlayerRotationZ>0</PlayerRotationZ>
+      </PlayerRotation>
+    </WalkThrough>
+    <VirtualTourCameras>0</VirtualTourCameras>
+    <VirtualTour>
+      <VirtualTouchMode />
+    </VirtualTour>
+  </features>
+  <Catalogue>
+    <NoOfRooms>3</NoOfRooms>
+    <Room>
+      <Rooms>
+        <Name>Master Bedroom</Name>
+        <Theme>03</Theme>
+        <NumberOfObjects>1</NumberOfObjects>
+        <DynamicObjects>
+          <DynamicObjectsInfo>
+            <Name>Bed</Name>
+            <positionX>7.86</positionX>
+            <positionY>0</positionY>
+            <positionZ>-0.98</positionZ>
+            <rotationX>0</rotationX>
+            <rotationY>180</rotationY>
+            <rotationZ>0</rotationZ>
+            <DefaultMesh>th03_mb_bd_d_6x6</DefaultMesh>
+            <DefaultMaterialSet>01</DefaultMaterialSet>
+          </DynamicObjectsInfo>
+        </DynamicObjects>
+        <NumberOfChangableMaterials>0</NumberOfChangableMaterials>
+        <ChangableMaterials />
+      </Rooms>
+      <Rooms>
+        <Name>Living Room</Name>
+        <Theme>02</Theme>
+        <NumberOfObjects>2</NumberOfObjects>
+        <DynamicObjects>
+          <DynamicObjectsInfo>
+            <Name>Sofa</Name>
+            <positionX>-1.06</positionX>
+            <positionY>0</positionY>
+            <positionZ>-2.35</positionZ>
+            <rotationX>0</rotationX>
+            <rotationY>0</rotationY>
+            <rotationZ>0</rotationZ>
+            <DefaultMesh>th02_lr_sf_l2_s5</DefaultMesh>
+            <DefaultMaterialSet>01</DefaultMaterialSet>
+          </DynamicObjectsInfo>
+          <DynamicObjectsInfo>
+            <Name>Dining Table</Name>
+            <positionX>0</positionX>
+            <positionY>0</positionY>
+            <positionZ>1.63</positionZ>
+            <rotationX>0</rotationX>
+            <rotationY>90</rotationY>
+            <rotationZ>0</rotationZ>
+            <DefaultMesh>th02_lr_dn_s6</DefaultMesh>
+            <DefaultMaterialSet>01</DefaultMaterialSet>
+          </DynamicObjectsInfo>
+        </DynamicObjects>
+        <NumberOfChangableMaterials>0</NumberOfChangableMaterials>
+        <ChangableMaterials />
+      </Rooms>
+      <Rooms>
+        <Name>Normal Bedroom</Name>
+        <Theme>02</Theme>
+        <NumberOfObjects>1</NumberOfObjects>
+        <DynamicObjects>
+          <DynamicObjectsInfo>
+            <Name>Bed</Name>
+            <positionX>3.29</positionX>
+            <positionY>0</positionY>
+            <positionZ>-2.9</positionZ>
+            <rotationX>0</rotationX>
+            <rotationY>270</rotationY>
+            <rotationZ>0</rotationZ>
+            <DefaultMesh>th02_nb_bd_d_6x6</DefaultMesh>
+            <DefaultMaterialSet>01</DefaultMaterialSet>
+          </DynamicObjectsInfo>
+        </DynamicObjects>
+        <NumberOfChangableMaterials>0</NumberOfChangableMaterials>
+        <ChangableMaterials />
+      </Rooms>
+    </Room>
+  </Catalogue>
+</Layouts>

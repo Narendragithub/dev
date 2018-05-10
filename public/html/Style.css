@@ -1,0 +1,288 @@
+﻿.ent a {
+    background-color: #444444 !important;
+    color: white !important;
+}
+.main-menu .span1 {
+   
+   
+    position: absolute;
+   padding:5px 11px 14px 19px;
+   z-index:9;
+}
+span img {
+    margin-top: 10px;
+}
+.rate-img img {
+    margin-top: 0;
+}
+.rate img {
+    margin-top: 0;
+}
+.green_p {
+background-color:#689F38;
+}
+
+.red_p {
+background-color:#ED3B3B;
+}
+
+.orange_p {
+background-color:#EF6C00;
+}
+
+.blue_p {
+background-color:#039BE5;
+}
+
+.dblue_p {
+background-color:#536DFE;
+}
+
+.grey_p {
+background-color:#658092;
+}
+
+/*.zmdi {
+   
+    display: inline-block;
+    font: 23px/1 "Material-Design-Iconic-Font" !important;
+    text-rendering: auto;
+}*/
+
+.read {
+    color: #4b4444;
+    font-size: 20px;
+}
+
+.main-menu li:nth-child(2) a:hover {
+    background-color: #689F38;
+    color:white;
+}
+
+.main-menu li:nth-child(3) a:hover {
+    background-color: #ED3B3B;
+    color:white;
+}
+
+.main-menu li:nth-child(4) a:hover {
+    background-color: #EF6C00;
+    color:white;
+}
+
+.main-menu li:nth-child(5) a:hover {
+    background-color: #658092;
+    color:white;
+}
+
+.main-menu li:nth-child(6) a:hover {
+    background-color: #039BE5;
+    color:white;
+}
+
+.main-menu li:nth-child(7) a:hover {
+    background-color: #536DFE;
+    color:white;
+}
+.landing-widget .dash-widget-item {
+    min-height: 142px;
+}
+.item .dash-widget-item {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    margin-bottom: 30px;
+    min-height: 157px !important;
+    position: relative;
+}
+
+.form-horizontal h3 {
+    color: #4a3b3b;
+    font-size: 17px;
+}
+
+/*extra form css*/
+.process-step .btn:focus{outline:none}
+.process{display:table;width:100%;position:relative}
+.process-row{display:table-row}
+.process-step button[disabled]{opacity:1 !important;filter: alpha(opacity=100) !important}
+.process-row:before{top:40px;bottom:0;position:absolute;content:" ";width:100%;height:1px;background-color:#ccc;z-order:0}
+.process-step{display:table-cell;text-align:center;position:relative}
+.process-step p{margin-top:4px}
+.btn-circle{width:80px;height:80px;text-align:center;font-size:12px;border-radius:50%}
+
+/*product slider css*/
+@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
+.col-item
+{
+    border: 1px solid #E1E1E1;
+    border-radius: 5px;
+    background: #FFF;
+}
+.col-item .photo img
+{
+    margin: 0 auto;
+    width: 100%;
+}
+
+.col-item .info
+{
+    padding: 10px;
+    border-radius: 0 0 5px 5px;
+    margin-top: 1px;
+}
+
+.col-item:hover .info {
+    background-color: #F5F5DC;
+}
+.col-item .price {
+    float: left;
+    margin-top: 5px;
+    min-height: 90px;
+    padding: 12px;
+}
+
+.col-item .price h5
+{
+    line-height: 20px;
+    margin: 0;
+}
+
+.price-text-color
+{
+    color: #219FD1;
+}
+
+.col-item .info .rating
+{
+    color: #777;
+}
+
+.col-item .rating
+{
+    /*width: 50%;*/
+    float: left;
+    font-size: 17px;
+    text-align: right;
+    line-height: 52px;
+    margin-bottom: 10px;
+    height: 52px;
+}
+
+.col-item .separator
+{
+    border-top: 1px solid #E1E1E1;
+}
+
+.clear-left
+{
+    clear: left;
+}
+
+.col-item .separator p
+{
+    line-height: 20px;
+    margin-bottom: 0;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.col-item .separator p i
+{
+    margin-right: 5px;
+}
+.col-item .btn-add
+{
+    width: 50%;
+    float: left;
+}
+
+.col-item .btn-add
+{
+    border-right: 1px solid #E1E1E1;
+}
+
+.col-item .btn-details
+{
+    width: 50%;
+    float: left;
+    padding-left: 10px;
+}
+.controls
+{
+    margin-top: 20px;
+}
+[data-slide="prev"]
+{
+    margin-right: 10px;
+}
+ .controls {
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    top: 80px;
+    z-index: 9;
+}
+        .controls a {
+    font-size: 14px;
+    font-weight: bold;
+}
+.col-md-6.col-sm-6.visible-xs {
+    text-align: center;
+}
+.reg-form .input-group {
+    padding-top: 25px;
+}
+ul.login-list {
+    list-style: outside none a;
+}
+.login-list li {
+    padding: 10px;
+}
+.min-height .card {
+ min-height:500px;
+}
+.top-menu li a {
+    color: white;
+    font-size: 18px;
+}
+.item img {
+    width:100%;
+}
+.video-div {
+    height: 494px;
+    width: 100%;
+    overflow:hidden;
+}
+.v-cap {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top:27%;
+    
+}   
+.v-cap h1 {
+    color: #e7880e;
+    font-size: 59px;
+}
+.v-cap p {
+    color: white;
+    font-size: 29px;
+    font-weight: bold;
+}
+.top-menu a {
+    color: white;
+    font-size: 20px;
+    padding-right: 33px;
+   
+}
+.new-user {
+  
+    margin: 0 auto;
+    padding: 12px;
+    text-align: center;
+    width: 46%;
+}
+.new-user h2 {
+   
+    margin-top: 0;
+}
+/*extra form css*/

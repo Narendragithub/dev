@@ -1,0 +1,103 @@
+
+<?php $__env->startSection('content'); ?>
+
+<div class="allcontent">
+    
+    <div  class="serchlefts">
+        
+    <div class="maintablewhite">
+<div class="maintitle"><div class="orangebox">
+                <div class="orangeicon"><i style="font-size: 40px; color: #ffffff;" class="fa fa-diamond" aria-hidden="true"></i></div>
+            </div>&nbsp;&nbsp;Projects (<?php echo e($projectcount); ?>)</div>
+        
+        <div id="gride-bg">
+            <div class="tablegrid">
+                <div class="tablegridheader">
+                    <div></div><!--<div><input type="checkbox" id="checkbox" name="checkbox"><label for="checkbox"></label></div>-->
+                    <div class="text-left" style="padding-left: 15px;">Title</div>                    
+                                     
+                    <div>Email</div>                    
+                    <div>Phone</div>                    
+                   
+                    <div>Service</div>
+                    <div>Status</div>
+                   
+                </div>
+                <?php foreach($projects as $project): ?>
+
+                <div class="tablegridrow">   
+                    <div></div>
+                    <div class="text-left" style="padding-left: 15px;"><?php echo e($project->title); ?></div>
+                   
+                    <div><?php echo e($project->email); ?> </div>
+                    <div><?php echo e($project->phone); ?></div>                
+                    <div><?php
+                        if ($project->premium_service == 1) {
+                            echo "Premium";
+                        } else {
+                            echo "Free";
+                        }
+                        ?></div>  
+                    <div><?php
+                        if ($project->is_completed == 0) {
+                            echo $project->department->department_name;
+                        } else {
+                            echo "Completed";
+                        }
+                        ?></div>   
+                </div>
+                <?php endforeach; ?>   
+
+            </div>
+
+            <div class="clearboth"></div>
+        </div><br>
+        <div class="tebaltop">
+
+            <div class="bluebtn"><a href="<?php echo e(adminurl('projects')); ?>">See All</a></div>
+
+        </div>
+    </div></div>
+    <div class="serchlefts">
+   
+    <div class="maintablewhite">
+         <div class="maintitle"><div class="orangebox" style="background: #ffce55;">
+                <div class="orangeicon"><i style="font-size: 40px; color: #ffffff;" class="fa fa-users" aria-hidden="true"></i></div>
+             </div>&nbsp;&nbsp;Members (<?php echo e($usercount); ?>)</div>
+        
+        <div id="gride-bg">
+            <div class="tablegrid">
+                <div class="tablegridheader">
+                    <div></div>
+                    <div class="text-left" style="padding-left: 15px;">Id</div>                    
+                    <div>Name</div> 
+                    <div>Email</div>     
+                    <div>Registration Date</div>
+                   
+                </div>
+               <?php foreach($users as $member): ?>
+
+                <div class="tablegridrow">
+                    <div></div>
+                    <div class="text-left" style="padding-left: 15px;"><?php echo e($member->id); ?></div>
+                    <div><?php echo e($member->firstname); ?> <?php echo e($member->lastname); ?></div>
+                    <div><?php echo e($member->email); ?> </div>
+                    <div><?php echo e($member->created_at); ?></div>
+                     
+
+                </div>
+                <?php endforeach; ?>  
+
+            </div>
+
+            <div class="clearboth"></div>
+        </div>
+         <br>
+<div class="tebaltop">
+            <div class="bluebtn"><a href="<?php echo e(adminurl('members')); ?>">See All</a></div>
+        </div>
+    </div></div>
+      <div class="clearboth"></div>
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts/admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

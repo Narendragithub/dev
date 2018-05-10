@@ -1,0 +1,46 @@
+ManifestFileVersion: 0
+CRC: 1400050987
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b9bc31cd59706a21e6c235a6f0c83719
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 0520077050483de6babb9bd310d40764
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Cuexprs/Materials/Beds/Set01/Mat_04.mat
+- Assets/Cuexprs/Materials/Beds/Set02/Mat_02.mat
+- Assets/Cuexprs/Materials/Beds/Set00/aomaterial.mat
+- Assets/Cuexprs/Materials/Beds/Set02/Mat_03.mat
+- Assets/Cuexprs/Materials/Beds/Set00/Thumbnail.jpg
+- Assets/Cuexprs/Materials/Beds/Set02/Mat_01.mat
+- Assets/Cuexprs/Materials/Beds/Set01/Thumbnail.gif
+- Assets/Cuexprs/Materials/Beds/Set02/Mat_04.mat
+- Assets/Cuexprs/Materials/Beds/Set01/Mat_02.mat
+- Assets/Cuexprs/Materials/Beds/Set01/Mat_01.mat
+- Assets/Cuexprs/Materials/Beds/Set01/Mat_03.mat
+- Assets/Cuexprs/Materials/Beds/Set01/Mat_00.mat
+- Assets/Cuexprs/Materials/Beds/Set00/Mat_06.mat
+- Assets/Cuexprs/Materials/Beds/Set00/Mat_00.mat
+- Assets/Cuexprs/Materials/Beds/Set02/Mat_00.mat
+- Assets/Cuexprs/Materials/Beds/Set00/Mat_01.mat
+- Assets/Cuexprs/Materials/Beds/Set02/Mat_06.mat
+- Assets/Cuexprs/Materials/Beds/Set02/Mat_05.mat
+- Assets/Cuexprs/Materials/Beds/Set01/Mat_06.mat
+- Assets/Cuexprs/Materials/Beds/Set00/Mat_02.mat
+- Assets/Cuexprs/Materials/Beds/Set00/Mat_04.mat
+- Assets/Cuexprs/Materials/Beds/Set01/aomaterial.mat
+- Assets/Cuexprs/Materials/Beds/Set00/Mat_03.mat
+- Assets/Cuexprs/Materials/Beds/Set02/Thumbnail.jpg
+- Assets/Cuexprs/Materials/Beds/Set01/Mat_05.mat
+- Assets/Cuexprs/Materials/Beds/Set02/aomaterial.mat
+- Assets/Cuexprs/Materials/Beds/Set00/Mat_05.mat
+Dependencies: []
