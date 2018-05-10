@@ -4,14 +4,25 @@ namespace Illuminate\Cache;
 
 use Illuminate\Contracts\Cache\Store;
 
-class ArrayStore extends TaggableStore implements Store
+class XCacheStore extends TaggableStore implements Store
 {
     /**
-     * The array of stored values.
+     * A string that should be prepended to keys.
      *
-     * @var array
+     * @var string
      */
-    protected $storage = [];
+    protected $prefix;
+
+    /**
+     * Create a new WinCache store.
+     *
+     * @param  string  $prefix
+     * @return void
+     */
+    public function __construct($prefix = '')
+    {
+        $this->prefix = $prefix;
+    }
 
     /**
      * Retrieve an item from the cache by key.
@@ -21,8 +32,10 @@ class ArrayStore extends TaggableStore implements Store
      */
     public function get($key)
     {
-        if (array_key_exists($key, $this->storage)) {
-            return $this->storage[$key];
+        $value = xcache_get($this->prefix.$key);
+
+        if (isset($value)) {
+            return $value;
         }
     }
 
@@ -36,7 +49,7 @@ class ArrayStore extends TaggableStore implements Store
      */
     public function put($key, $value, $minutes)
     {
-        $this->storage[$key] = $value;
+        xcache_set($this->prefix.$key, $value, $minutes * 60);
     }
 
     /**
@@ -48,9 +61,7 @@ class ArrayStore extends TaggableStore implements Store
      */
     public function increment($key, $value = 1)
     {
-        $this->storage[$key] = ((int) $this->storage[$key]) + $value;
-
-        return $this->storage[$key];
+        return xcache_inc($this->prefix.$key, $value);
     }
 
     /**
@@ -62,7 +73,7 @@ class ArrayStore extends TaggableStore implements Store
      */
     public function decrement($key, $value = 1)
     {
-        return $this->increment($key, $value * -1);
+        return xcache_dec($this->prefix.$key, $value);
     }
 
     /**
@@ -74,7 +85,7 @@ class ArrayStore extends TaggableStore implements Store
      */
     public function forever($key, $value)
     {
-        $this->put($key, $value, 0);
+        return $this->put($key, $value, 0);
     }
 
     /**
@@ -85,9 +96,7 @@ class ArrayStore extends TaggableStore implements Store
      */
     public function forget($key)
     {
-        unset($this->storage[$key]);
-
-        return true;
+        return xcache_unset($this->prefix.$key);
     }
 
     /**
@@ -97,7 +106,7 @@ class ArrayStore extends TaggableStore implements Store
      */
     public function flush()
     {
-        $this->storage = [];
+        xcache_clear_cache(XC_TYPE_VAR);
     }
 
     /**
@@ -107,6 +116,6 @@ class ArrayStore extends TaggableStore implements Store
      */
     public function getPrefix()
     {
-        return '';
+        return $this->prefix;
     }
 }

@@ -4,7 +4,7 @@ namespace Illuminate\Cache;
 
 use Illuminate\Contracts\Cache\Store;
 
-class ArrayStore extends TaggableStore implements Store
+class NullStore extends TaggableStore implements Store
 {
     /**
      * The array of stored values.
@@ -21,9 +21,7 @@ class ArrayStore extends TaggableStore implements Store
      */
     public function get($key)
     {
-        if (array_key_exists($key, $this->storage)) {
-            return $this->storage[$key];
-        }
+        //
     }
 
     /**
@@ -36,7 +34,7 @@ class ArrayStore extends TaggableStore implements Store
      */
     public function put($key, $value, $minutes)
     {
-        $this->storage[$key] = $value;
+        //
     }
 
     /**
@@ -48,9 +46,7 @@ class ArrayStore extends TaggableStore implements Store
      */
     public function increment($key, $value = 1)
     {
-        $this->storage[$key] = ((int) $this->storage[$key]) + $value;
-
-        return $this->storage[$key];
+        //
     }
 
     /**
@@ -62,7 +58,7 @@ class ArrayStore extends TaggableStore implements Store
      */
     public function decrement($key, $value = 1)
     {
-        return $this->increment($key, $value * -1);
+        //
     }
 
     /**
@@ -74,20 +70,18 @@ class ArrayStore extends TaggableStore implements Store
      */
     public function forever($key, $value)
     {
-        $this->put($key, $value, 0);
+        //
     }
 
     /**
      * Remove an item from the cache.
      *
      * @param  string  $key
-     * @return bool
+     * @return void
      */
     public function forget($key)
     {
-        unset($this->storage[$key]);
-
-        return true;
+        //
     }
 
     /**
@@ -97,7 +91,7 @@ class ArrayStore extends TaggableStore implements Store
      */
     public function flush()
     {
-        $this->storage = [];
+        //
     }
 
     /**
